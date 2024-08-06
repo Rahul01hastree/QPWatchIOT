@@ -1,0 +1,681 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		124058032BA17401007E8E61 /* AdvancedSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124058022BA17401007E8E61 /* AdvancedSettingsView.swift */; };
+		124058062BA17475007E8E61 /* PinProtectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124058052BA17475007E8E61 /* PinProtectionView.swift */; };
+		1257AB5E2B2AF39F004BB7D5 /* CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1257AB5D2B2AF39F004BB7D5 /* CoreLocation.swift */; };
+		12823E4C2B31624C00C21F4B /* DeviceTelemetryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12823E4B2B31624C00C21F4B /* DeviceTelemetryModel.swift */; };
+		12823E4F2B316EF500C21F4B /* NetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12823E4E2B316EF500C21F4B /* NetworkClass.swift */; };
+		12CF6AD22B2C615900BF4E2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF6AD12B2C615900BF4E2B /* Constants.swift */; };
+		12CF6AD42B2C6F4500BF4E2B /* AzureStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF6AD32B2C6F4500BF4E2B /* AzureStorageHelper.swift */; };
+		12E4E2462BAD54A30028ECA6 /* FIrebaseDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E4E2452BAD54A30028ECA6 /* FIrebaseDatabaseHelper.swift */; };
+		12E4E24A2BAD57BA0028ECA6 /* DropDownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E4E2492BAD57BA0028ECA6 /* DropDownMenuView.swift */; };
+		12F5D46A2BAC1647006C32CF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 12F5D4692BAC1647006C32CF /* FirebaseDatabase */; };
+		12F5D46C2BAC1647006C32CF /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 12F5D46B2BAC1647006C32CF /* FirebaseDatabaseSwift */; };
+		12F5D4762BAC1647006C32CF /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 12F5D4752BAC1647006C32CF /* FirebaseInstallations */; };
+		12F5D4862BAC1B3E006C32CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12F5D4852BAC1B3E006C32CF /* GoogleService-Info.plist */; };
+		9ACF709A2B286AA500B1C832 /* QP HT Applicationn.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9ACF70992B286AA500B1C832 /* QP HT Applicationn.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9ACF709F2B286AA500B1C832 /* Watch_Ios_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF709E2B286AA500B1C832 /* Watch_Ios_AppApp.swift */; };
+		9ACF70A12B286AA500B1C832 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF70A02B286AA500B1C832 /* ContentView.swift */; };
+		9ACF70A32B286AA700B1C832 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF70A22B286AA700B1C832 /* Assets.xcassets */; };
+		9ACF70A62B286AA700B1C832 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF70A52B286AA700B1C832 /* Preview Assets.xcassets */; };
+		9ACF70B12B2878EF00B1C832 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF70B02B2878EF00B1C832 /* SettingsView.swift */; };
+		9ACF70B72B287FB800B1C832 /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF70B62B287FB700B1C832 /* CommonClass.swift */; };
+		CCA96F032C577D1D003E0A68 /* IoTHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */; };
+		CCE4C4CB2C4FF2AB00B62516 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4C92C4FF2AB00B62516 /* CoreData.xcdatamodeld */; };
+		CCE4C4CE2C4FF42100B62516 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */; };
+		CCE4C4CF2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */; };
+		CCEA3EC12C4FC8B7005DF44E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */; };
+		CCF564D02C62181B0069B857 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF564CF2C62181B0069B857 /* DataModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9ACF709B2B286AA500B1C832 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9ACF708D2B286AA500B1C832 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9ACF70982B286AA500B1C832;
+			remoteInfo = "Watch Ios App Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9ACF70AC2B286AA700B1C832 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				9ACF709A2B286AA500B1C832 /* QP HT Applicationn.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		124058022BA17401007E8E61 /* AdvancedSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingsView.swift; sourceTree = "<group>"; };
+		124058052BA17475007E8E61 /* PinProtectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinProtectionView.swift; sourceTree = "<group>"; };
+		1257AB5D2B2AF39F004BB7D5 /* CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
+		1257AB652B2AF622004BB7D5 /* Watch-Ios-App-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Watch-Ios-App-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		12823E4B2B31624C00C21F4B /* DeviceTelemetryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTelemetryModel.swift; sourceTree = "<group>"; };
+		12823E4E2B316EF500C21F4B /* NetworkClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClass.swift; sourceTree = "<group>"; };
+		12CF6AD12B2C615900BF4E2B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		12CF6AD32B2C6F4500BF4E2B /* AzureStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzureStorageHelper.swift; sourceTree = "<group>"; };
+		12E4E2452BAD54A30028ECA6 /* FIrebaseDatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseDatabaseHelper.swift; sourceTree = "<group>"; };
+		12E4E2492BAD57BA0028ECA6 /* DropDownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuView.swift; sourceTree = "<group>"; };
+		12F5D4852BAC1B3E006C32CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Watch Ios App Watch App/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		9ACF70932B286AA500B1C832 /* QP HT Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QP HT Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ACF70992B286AA500B1C832 /* QP HT Applicationn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QP HT Applicationn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ACF709E2B286AA500B1C832 /* Watch_Ios_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_Ios_AppApp.swift; sourceTree = "<group>"; };
+		9ACF70A02B286AA500B1C832 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9ACF70A22B286AA700B1C832 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9ACF70A52B286AA700B1C832 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9ACF70B02B2878EF00B1C832 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9ACF70B62B287FB700B1C832 /* CommonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
+		CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTHubClient.swift; sourceTree = "<group>"; };
+		CCE4C4CA2C4FF2AB00B62516 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		CCF564CF2C62181B0069B857 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9ACF70962B286AA500B1C832 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F5D46A2BAC1647006C32CF /* FirebaseDatabase in Frameworks */,
+				12F5D4762BAC1647006C32CF /* FirebaseInstallations in Frameworks */,
+				12F5D46C2BAC1647006C32CF /* FirebaseDatabaseSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		124058012BA173B0007E8E61 /* AdvanceSettingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				124058022BA17401007E8E61 /* AdvancedSettingsView.swift */,
+			);
+			path = AdvanceSettingScreen;
+			sourceTree = "<group>";
+		};
+		124058042BA17443007E8E61 /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				124058052BA17475007E8E61 /* PinProtectionView.swift */,
+				12E4E2492BAD57BA0028ECA6 /* DropDownMenuView.swift */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
+		1257AB5F2B2AF3B0004BB7D5 /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				1257AB5D2B2AF39F004BB7D5 /* CoreLocation.swift */,
+			);
+			path = CoreLocation;
+			sourceTree = "<group>";
+		};
+		1257AB602B2AF3BE004BB7D5 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				9ACF70A02B286AA500B1C832 /* ContentView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		1257AB612B2AF3D7004BB7D5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCF564CE2C6217F10069B857 /* Model */,
+				1257AB602B2AF3BE004BB7D5 /* MainView */,
+				1257AB622B2AF3F0004BB7D5 /* SettingsView */,
+				124058012BA173B0007E8E61 /* AdvanceSettingScreen */,
+				124058042BA17443007E8E61 /* CommonView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1257AB622B2AF3F0004BB7D5 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				9ACF70B02B2878EF00B1C832 /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		1257AB642B2AF44E004BB7D5 /* CommonClasses */ = {
+			isa = PBXGroup;
+			children = (
+				12CF6AD32B2C6F4500BF4E2B /* AzureStorageHelper.swift */,
+				12CF6AD12B2C615900BF4E2B /* Constants.swift */,
+				9ACF70B62B287FB700B1C832 /* CommonClass.swift */,
+				12823E4E2B316EF500C21F4B /* NetworkClass.swift */,
+				12E4E2452BAD54A30028ECA6 /* FIrebaseDatabaseHelper.swift */,
+				CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */,
+			);
+			path = CommonClasses;
+			sourceTree = "<group>";
+		};
+		12823E4D2B3162C700C21F4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				12823E4B2B31624C00C21F4B /* DeviceTelemetryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9ACF708C2B286AA500B1C832 = {
+			isa = PBXGroup;
+			children = (
+				9ACF709D2B286AA500B1C832 /* Watch Ios App Watch App */,
+				9ACF70942B286AA500B1C832 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9ACF70942B286AA500B1C832 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9ACF70932B286AA500B1C832 /* QP HT Application.app */,
+				9ACF70992B286AA500B1C832 /* QP HT Applicationn.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9ACF709D2B286AA500B1C832 /* Watch Ios App Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				1257AB652B2AF622004BB7D5 /* Watch-Ios-App-Watch-App-Info.plist */,
+				12F5D4852BAC1B3E006C32CF /* GoogleService-Info.plist */,
+				9ACF709E2B286AA500B1C832 /* Watch_Ios_AppApp.swift */,
+				CCEA3EBC2C4FC6F6005DF44E /* Shared */,
+				1257AB612B2AF3D7004BB7D5 /* Views */,
+				1257AB642B2AF44E004BB7D5 /* CommonClasses */,
+				1257AB5F2B2AF3B0004BB7D5 /* CoreLocation */,
+				12823E4D2B3162C700C21F4B /* Model */,
+				9ACF70A22B286AA700B1C832 /* Assets.xcassets */,
+				9ACF70A42B286AA700B1C832 /* Preview Content */,
+			);
+			path = "Watch Ios App Watch App";
+			sourceTree = "<group>";
+		};
+		9ACF70A42B286AA700B1C832 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9ACF70A52B286AA700B1C832 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CCEA3EBC2C4FC6F6005DF44E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */,
+				CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */,
+				CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */,
+				CCE4C4C92C4FF2AB00B62516 /* CoreData.xcdatamodeld */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CCF564CE2C6217F10069B857 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCF564CF2C62181B0069B857 /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9ACF70922B286AA500B1C832 /* QP HT Application */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9ACF70AD2B286AA700B1C832 /* Build configuration list for PBXNativeTarget "QP HT Application" */;
+			buildPhases = (
+				9ACF70912B286AA500B1C832 /* Resources */,
+				9ACF70AC2B286AA700B1C832 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9ACF709C2B286AA500B1C832 /* PBXTargetDependency */,
+			);
+			name = "QP HT Application";
+			productName = "Watch Ios App";
+			productReference = 9ACF70932B286AA500B1C832 /* QP HT Application.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		9ACF70982B286AA500B1C832 /* QP HT Applicationn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9ACF70A92B286AA700B1C832 /* Build configuration list for PBXNativeTarget "QP HT Applicationn" */;
+			buildPhases = (
+				9ACF70952B286AA500B1C832 /* Sources */,
+				9ACF70962B286AA500B1C832 /* Frameworks */,
+				9ACF70972B286AA500B1C832 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QP HT Applicationn";
+			packageProductDependencies = (
+				12F5D4692BAC1647006C32CF /* FirebaseDatabase */,
+				12F5D46B2BAC1647006C32CF /* FirebaseDatabaseSwift */,
+				12F5D4752BAC1647006C32CF /* FirebaseInstallations */,
+			);
+			productName = "Watch Ios App Watch App";
+			productReference = 9ACF70992B286AA500B1C832 /* QP HT Applicationn.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9ACF708D2B286AA500B1C832 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					9ACF70922B286AA500B1C832 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					9ACF70982B286AA500B1C832 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 9ACF70902B286AA500B1C832 /* Build configuration list for PBXProject "Watch Ios App" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9ACF708C2B286AA500B1C832;
+			packageReferences = (
+				12F5D4562BAC1647006C32CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 9ACF70942B286AA500B1C832 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9ACF70922B286AA500B1C832 /* QP HT Application */,
+				9ACF70982B286AA500B1C832 /* QP HT Applicationn */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9ACF70912B286AA500B1C832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9ACF70972B286AA500B1C832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ACF70A62B286AA700B1C832 /* Preview Assets.xcassets in Resources */,
+				9ACF70A32B286AA700B1C832 /* Assets.xcassets in Resources */,
+				12F5D4862BAC1B3E006C32CF /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9ACF70952B286AA500B1C832 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCEA3EC12C4FC8B7005DF44E /* PersistentContainer.swift in Sources */,
+				9ACF70B72B287FB800B1C832 /* CommonClass.swift in Sources */,
+				CCE4C4CB2C4FF2AB00B62516 /* CoreData.xcdatamodeld in Sources */,
+				12823E4F2B316EF500C21F4B /* NetworkClass.swift in Sources */,
+				12823E4C2B31624C00C21F4B /* DeviceTelemetryModel.swift in Sources */,
+				12E4E2462BAD54A30028ECA6 /* FIrebaseDatabaseHelper.swift in Sources */,
+				CCE4C4CE2C4FF42100B62516 /* UserInfo+CoreDataClass.swift in Sources */,
+				12E4E24A2BAD57BA0028ECA6 /* DropDownMenuView.swift in Sources */,
+				124058032BA17401007E8E61 /* AdvancedSettingsView.swift in Sources */,
+				CCA96F032C577D1D003E0A68 /* IoTHubClient.swift in Sources */,
+				1257AB5E2B2AF39F004BB7D5 /* CoreLocation.swift in Sources */,
+				CCE4C4CF2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift in Sources */,
+				9ACF70B12B2878EF00B1C832 /* SettingsView.swift in Sources */,
+				9ACF70A12B286AA500B1C832 /* ContentView.swift in Sources */,
+				CCF564D02C62181B0069B857 /* DataModel.swift in Sources */,
+				12CF6AD42B2C6F4500BF4E2B /* AzureStorageHelper.swift in Sources */,
+				124058062BA17475007E8E61 /* PinProtectionView.swift in Sources */,
+				9ACF709F2B286AA500B1C832 /* Watch_Ios_AppApp.swift in Sources */,
+				12CF6AD22B2C615900BF4E2B /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9ACF709C2B286AA500B1C832 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9ACF70982B286AA500B1C832 /* QP HT Applicationn */;
+			targetProxy = 9ACF709B2B286AA500B1C832 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9ACF70A72B286AA700B1C832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9ACF70A82B286AA700B1C832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		9ACF70AA2B286AA700B1C832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"Watch Ios App Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 2V9L6U5ACK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Watch-Ios-App-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "QP HT Application";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location required for Cadre to view your location in mission server";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location required for Cadre to view your location in mission server";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Location required for Cadre to view your location in mission server";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location required for Cadre to view your location in mission server";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app..standaloneLocationTrackingg.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		9ACF70AB2B286AA700B1C832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"Watch Ios App Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 2V9L6U5ACK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Watch-Ios-App-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "QP HT Application";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location required for Cadre to view your location in mission server";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location required for Cadre to view your location in mission server";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Location required for Cadre to view your location in mission server";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location required for Cadre to view your location in mission server";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app..standaloneLocationTrackingg.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		9ACF70AE2B286AA700B1C832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2V9L6U5ACK;
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Ios App";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app..standaloneLocationTrackingg;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9ACF70AF2B286AA700B1C832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2V9L6U5ACK;
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Ios App";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app..standaloneLocationTrackingg;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9ACF70902B286AA500B1C832 /* Build configuration list for PBXProject "Watch Ios App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ACF70A72B286AA700B1C832 /* Debug */,
+				9ACF70A82B286AA700B1C832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9ACF70A92B286AA700B1C832 /* Build configuration list for PBXNativeTarget "QP HT Applicationn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ACF70AA2B286AA700B1C832 /* Debug */,
+				9ACF70AB2B286AA700B1C832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9ACF70AD2B286AA700B1C832 /* Build configuration list for PBXNativeTarget "QP HT Application" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ACF70AE2B286AA700B1C832 /* Debug */,
+				9ACF70AF2B286AA700B1C832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12F5D4562BAC1647006C32CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		12F5D4692BAC1647006C32CF /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12F5D4562BAC1647006C32CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		12F5D46B2BAC1647006C32CF /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12F5D4562BAC1647006C32CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		12F5D4752BAC1647006C32CF /* FirebaseInstallations */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12F5D4562BAC1647006C32CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseInstallations;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		CCE4C4C92C4FF2AB00B62516 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CCE4C4CA2C4FF2AB00B62516 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = CCE4C4CA2C4FF2AB00B62516 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9ACF708D2B286AA500B1C832 /* Project object */;
+}

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "422CEE20-7A54-4CFB-AC82-6817EC7C5AB1"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CABA50A3-DEA8-49F6-9EBA-3266531803E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Ios App Watch App/CommonClasses/AzureStorageHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "createAndUploadFileWithOldSASToken(fileName:fileContent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CABA50A3-DEA8-49F6-9EBA-3266531803E8 - 93b011831efd90c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QP_HT_Applicationn.AzureStorageHelper.createAndUploadFileWithOldSASToken(fileName: Swift.String, fileContent: Swift.String) -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Downloads/WatchOSAPP(27:03:2024)/watchos-app-8/Watch%20Ios%20App%20Watch%20App/CommonClasses/AzureStorageHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "376">
+               </Location>
+               <Location
+                  uuid = "CABA50A3-DEA8-49F6-9EBA-3266531803E8 - 93b011831efd90c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QP_HT_Applicationn.AzureStorageHelper.createAndUploadFileWithOldSASToken(fileName: Swift.String, fileContent: Swift.String) -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Downloads/WatchOSAPP(27:03:2024)/watchos-app-8/Watch%20Ios%20App%20Watch%20App/CommonClasses/AzureStorageHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "460">
+               </Location>
+               <Location
+                  uuid = "CABA50A3-DEA8-49F6-9EBA-3266531803E8 - 93b011831efd90c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QP_HT_Applicationn.AzureStorageHelper.createAndUploadFileWithOldSASToken(fileName: Swift.String, fileContent: Swift.String) -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Downloads/WatchOSAPP(27:03:2024)/watchos-app-8/Watch%20Ios%20App%20Watch%20App/CommonClasses/AzureStorageHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "568">
+               </Location>
+               <Location
+                  uuid = "CABA50A3-DEA8-49F6-9EBA-3266531803E8 - 93b011831efd90c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QP_HT_Applicationn.AzureStorageHelper.createAndUploadFileWithOldSASToken(fileName: Swift.String, fileContent: Swift.String) -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Downloads/WatchOSAPP(27:03:2024)/watchos-app-8/Watch%20Ios%20App%20Watch%20App/CommonClasses/AzureStorageHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "684">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "905EB9B9-CC3E-4434-B30B-14996D65A347"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Ios App Watch App/CommonClasses/AzureStorageHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "createAndUploadFile(fileName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C7C0136B-789F-4BB9-8FFD-E481B4606DDD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Ios App Watch App/CommonClasses/AzureStorageHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "uploadFile(fileName:fileContent:contentLength:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "316F1E6A-283C-46C5-AF55-F357CD6E548B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Ios App Watch App/CommonClasses/AzureStorageHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "createAndUploadFile(fileName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

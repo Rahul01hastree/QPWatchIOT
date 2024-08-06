@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A04B8F66-08F3-4916-A756-582242A92403"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9CE4543-F1DD-4564-8222-3023FF5B99B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Ios App Watch App/CommonClasses/AzureStorageHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "uploadFile(fileName:fileContent:contentLength:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C9CE4543-F1DD-4564-8222-3023FF5B99B6 - e1cb52bd01f525f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Watch_Ios_App_Watch_App.AzureStorageHelper.uploadFile(fileName: Swift.String, fileContent: Swift.String, contentLength: Swift.String) -&gt; ()"
+                  moduleName = "Watch Ios App Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hastree/Documents/watchos-app/Watch%20Ios%20App%20Watch%20App/CommonClasses/AzureStorageHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "556">
+               </Location>
+               <Location
+                  uuid = "C9CE4543-F1DD-4564-8222-3023FF5B99B6 - e1cb52bd01f525f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Watch_Ios_App_Watch_App.AzureStorageHelper.uploadFile(fileName: Swift.String, fileContent: Swift.String, contentLength: Swift.String) -&gt; ()"
+                  moduleName = "Watch Ios App Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hastree/Documents/watchos-app/Watch%20Ios%20App%20Watch%20App/CommonClasses/AzureStorageHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "1096">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
