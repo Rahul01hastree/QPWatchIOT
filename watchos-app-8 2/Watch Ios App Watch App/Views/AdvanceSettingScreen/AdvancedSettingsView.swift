@@ -284,7 +284,10 @@ struct AdvancedSettingsView: View {
                                 ForEach(requiredArray, id: \.self) { storageAccountName in
                                     Button(action: {
                                         withAnimation {
-                                            
+                                            if currentDeviceIndex == 0 {
+                                                UserDefaults.standard.set(storageAccountName, forKey: "currentSelectedDeviceID")
+                                            }
+
                                             self.selectedStorageAccountName = storageAccountName
                                             self.isStorageAccountNameDropdown = false
                                         }
@@ -360,6 +363,8 @@ struct AdvancedSettingsView: View {
             for(key,value) in deviceSAS {
                 if deviceID == key {
                     self.selectedFileShareName = value
+                    UserDefaults.standard.set(value, forKey: "currentSelectedSAS")
+
                 }
             }
         }else{
