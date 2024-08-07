@@ -83,7 +83,7 @@ class NetworkReachability {
         monitor.start(queue: queue)
         
         // Wait for the pathUpdateHandler to be called.
-        semaphore.wait()
+        //semaphore.wait()
 
         monitor.cancel()
         

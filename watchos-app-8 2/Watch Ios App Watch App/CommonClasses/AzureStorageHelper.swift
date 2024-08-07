@@ -66,7 +66,7 @@ class AzureStorageHelper {
                 }
                 return
             }
-            print("File created successfully")
+            print("File created successfully ++++++++  Sended  ++++++++")
             contentLength = String(fileContent.count - 1)
             self.uploadFile(fileName: fileName, fileContent: fileContent, contentLength: contentLength)
         }

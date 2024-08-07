@@ -27,6 +27,7 @@
 		9ACF70A62B286AA700B1C832 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF70A52B286AA700B1C832 /* Preview Assets.xcassets */; };
 		9ACF70B12B2878EF00B1C832 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF70B02B2878EF00B1C832 /* SettingsView.swift */; };
 		9ACF70B72B287FB800B1C832 /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF70B62B287FB700B1C832 /* CommonClass.swift */; };
+		CC42BAC52C63457000BF17A2 /* InternetChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42BAC42C63457000BF17A2 /* InternetChecker.swift */; };
 		CCA96F032C577D1D003E0A68 /* IoTHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */; };
 		CCE4C4CB2C4FF2AB00B62516 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4C92C4FF2AB00B62516 /* CoreData.xcdatamodeld */; };
 		CCE4C4CE2C4FF42100B62516 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */; };
@@ -79,6 +80,7 @@
 		9ACF70A52B286AA700B1C832 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9ACF70B02B2878EF00B1C832 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9ACF70B62B287FB700B1C832 /* CommonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
+		CC42BAC42C63457000BF17A2 /* InternetChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetChecker.swift; sourceTree = "<group>"; };
 		CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTHubClient.swift; sourceTree = "<group>"; };
 		CCE4C4CA2C4FF2AB00B62516 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				12823E4E2B316EF500C21F4B /* NetworkClass.swift */,
 				12E4E2452BAD54A30028ECA6 /* FIrebaseDatabaseHelper.swift */,
 				CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */,
+				CC42BAC42C63457000BF17A2 /* InternetChecker.swift */,
 			);
 			path = CommonClasses;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				12CF6AD42B2C6F4500BF4E2B /* AzureStorageHelper.swift in Sources */,
 				124058062BA17475007E8E61 /* PinProtectionView.swift in Sources */,
 				9ACF709F2B286AA500B1C832 /* Watch_Ios_AppApp.swift in Sources */,
+				CC42BAC52C63457000BF17A2 /* InternetChecker.swift in Sources */,
 				12CF6AD22B2C615900BF4E2B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

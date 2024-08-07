@@ -15,6 +15,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var defaultUpdateFrequency: Double = 5
     private var clientDirection: String = "Unknown"
     var checkCall: Int = 0
+    var isConnected: Bool = false
     
     
     @Published var updateFrequency: Double {
@@ -27,6 +28,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var count = 0
     
     override init() {
+        
+//        InternetChecker.shared.checkInternetConnectivity { result in
+//            print("is watch connected to internet : \(result)")
+//        }
+//        InternetChecker.shared.monitorInternetConnectivity{ result in
+//            print("is watch connected to internet from monitoring mode : \(result)")
+//        }
+        
         if let storedFrequency = UserDefaults.standard.value(forKey: updateFrequencyUserDefaultsKey) as? Double {
             updateFrequency = storedFrequency
         } else {
@@ -76,37 +85,36 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("Is Network Available \(NetworkReachability().isInternetAvailable())")
         NetworkMonitor().checkNetworkType()
         
-      //  sendDataToIoTHub(from: newLocation, direction: "")
+        InternetChecker.shared.networkCall { [weak self] isConnected in
+            guard let self = self else { return }
+            
+            if isConnected {
 
-        let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
-        selectedDeviceIndex == 0 ? sendDataToIoTHub(from: newLocation, direction: "") : CommonClass.sendDataToServer(newLocation)
-
-        
-        
-        if NetworkReachability.isNetworkAvailable() {
-           // CommonClass.sendDataToServer(newLocation)
-            self.userLocation = newLocation
-        }else{
-            if performNetwork(){
-               // CommonClass.sendDataToServer(newLocation)
+                print("Internet connection is available >>>>>> * <<<<<< ")
+                
+                let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
+                
+                if selectedDeviceIndex == 0 {
+                    sendDataToIoTHub(from: newLocation, direction: "")
+                } else {
+                    CommonClass.sendDataToServer(newLocation)
+                }
+                
                 self.userLocation = newLocation
                 
-                self.fetchUserInfoFromCoreData()
-               
-            }else{
-                print("Network Error.")
+            } else {
+                print("No internet connection")
                 
                 if CommonClass().getAvailableStorageSpace() > persistentContainer.minAllowedStorageSize {
                     print("current size :- \(CommonClass().getAvailableStorageSpace())")
                     self.userInfoToLocal(location: newLocation)
-                }else{
+                } else {
                     delete50UserInfoEntries(location: newLocation)
                 }
+                
                 self.userLocation = newLocation
             }
- 
         }
-   
         
     }
     
@@ -312,10 +320,6 @@ extension LocationManager {
         }
     }
     
-    
-    
-    
-    
     private func deleteAllEntries() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = UserInfo.fetchRequest()
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -360,7 +364,7 @@ extension LocationManager {
         IoTHubClient.shared.sendClientDataToIOT(userInfo: data ) { result in
             switch result {
             case .success(let success):
-                print(success)
+                print("data sended to iot : \(success) ++++++++++ >>>> ***")
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
