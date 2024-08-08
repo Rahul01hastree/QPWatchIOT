@@ -11,21 +11,14 @@ import Foundation
 class IoTHubClient {
     
     static let shared = IoTHubClient()
-    private let iotHubName = "AppleWatch"
-    private var iotDeviceID = "watch5"
+    private var iotHubName = ""
+    private var iotDeviceID = ""
     private var iotSASToken = ""
     private var urlSession: URLSession
     
     
     init() {
         
-        if let SASToken = UserDefaults.standard.string(forKey: "currentSelectedSAS"){
-            self.iotSASToken = SASToken
-        }
-        if let deviceID = UserDefaults.standard.string(forKey: "currentSelectedDeviceID"){
-            self.iotDeviceID = deviceID
-        }
-
         let configuration = URLSessionConfiguration.default
         self.urlSession = URLSession(configuration: configuration)
     }
@@ -33,17 +26,17 @@ class IoTHubClient {
 
     func sendClientDataToIOT(userInfo: DeviceTelemetry, completion: @escaping (Result<Void, Error>) -> Void) {
         
-    let testingString = "https://Watch.azure-devices.net/devices/\(iotDeviceID)/messages/events?api-version=2020-09-30"
-        let urlString = "https://\(iotHubName).azure-devices.us/devices/\(iotDeviceID)/messages/events?api-version=2021-04-12"
-        guard let url = URL(string: testingString) else {
+        self.updateValueFromUserDefaults()
+       // let testingString = "https://Watch.azure-devices.net/devices/\(iotDeviceID)/messages/events?api-version=2020-09-30"
+        let urlString = "https://\(iotHubName)/devices/\(iotDeviceID)/messages/events?api-version=2021-04-12"
+        guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
             return
         }
-        //SharedAccessSignature
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("SharedAccessSignature sr=Watch.azure-devices.net%2Fdevices%2Fwatch5&sig=O40tBYAhQCvgg5nFIltrrHgwZa6SeVVuZXEhX2UVqn4%3D&se=1723094904", forHTTPHeaderField: "Authorization")
+        request.addValue(iotSASToken, forHTTPHeaderField: "Authorization")
         
         guard let body = try? JSONEncoder().encode(userInfo) else {
             completion(.failure(NSError(domain: "JSON Encoding Error", code: -1, userInfo: nil)))
@@ -78,6 +71,35 @@ class IoTHubClient {
             self.iotDeviceID = deviceID
         }
     }
+    
+    private func updateValueFromUserDefaults(){
 
+        if let SASToken = UserDefaults.standard.string(forKey: "currentSelectedSAS"){
+            self.iotSASToken = SASToken
+        }else{
+            self.iotSASToken = IoTHubClient.watch5SASToken
+        }
+        
+        if let deviceID = UserDefaults.standard.string(forKey: "currentSelectedDeviceID"){
+            self.iotDeviceID = deviceID
+        }else{
+            self.iotDeviceID = IoTHubClient.watch5DeviceID
+        }
+        
+        if let hubName = UserDefaults.standard.string(forKey: "currentSelectedHUBName"){
+            self.iotHubName = hubName
+        }else{
+            self.iotHubName = IoTHubClient.huBName
+        }
+
+    }
+    
+}
+
+extension IoTHubClient {
+    
+    static let watch5SASToken = "SharedAccessSignature sr=AppleWatch.azure-devices.us%2Fdevices%2Fwatch5&sig=KuazUmp4j2Gvf60SY773VA9mkfcXo3CqajnHI7I8ap0%3D&se=1754680760"
+    static let watch5DeviceID = "watch5"
+    static let huBName = "https://AppleWatch.azure-devices.us"
     
 }

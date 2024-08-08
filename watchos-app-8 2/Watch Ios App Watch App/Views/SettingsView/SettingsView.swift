@@ -81,6 +81,9 @@ struct SettingsView: View {
             }
         }
         .onAppear {
+            
+            FirebaseDatabaseHelper().fetchDataFromFirebase()
+            
             if let savedPhoneNumber = UserDefaults.standard.string(forKey: "savedPhoneNumber") {
                 phoneNumber = savedPhoneNumber
                 

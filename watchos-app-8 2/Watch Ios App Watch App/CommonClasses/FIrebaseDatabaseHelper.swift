@@ -28,7 +28,6 @@ class FirebaseDatabaseHelper {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 if let jsonDict = json as? [String: Any] {
                     self.storeIntoUserDefulats(from: jsonDict)
-                  //  self.dataParas(from: <#T##[String : Any]#>)
                     DispatchQueue.main.async {
                         if isSasTokenRefreshBtbTapped {
                             self.updateSasToken(with: jsonDict)

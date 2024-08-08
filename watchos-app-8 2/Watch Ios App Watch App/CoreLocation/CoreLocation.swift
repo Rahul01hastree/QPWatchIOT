@@ -29,12 +29,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     override init() {
         
-//        InternetChecker.shared.checkInternetConnectivity { result in
-//            print("is watch connected to internet : \(result)")
-//        }
-//        InternetChecker.shared.monitorInternetConnectivity{ result in
-//            print("is watch connected to internet from monitoring mode : \(result)")
-//        }
         
         if let storedFrequency = UserDefaults.standard.value(forKey: updateFrequencyUserDefaultsKey) as? Double {
             updateFrequency = storedFrequency
@@ -100,20 +94,24 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                     CommonClass.sendDataToServer(newLocation)
                 }
                 
-                self.userLocation = newLocation
+                //self.userLocation = newLocation
                 
             } else {
                 print("No internet connection")
                 
                 if CommonClass().getAvailableStorageSpace() > persistentContainer.minAllowedStorageSize {
                     print("current size :- \(CommonClass().getAvailableStorageSpace())")
-                    self.userInfoToLocal(location: newLocation)
+                    // self.userInfoToLocal(location: newLocation)
                 } else {
-                    delete50UserInfoEntries(location: newLocation)
+                    //  delete50UserInfoEntries(location: newLocation)
                 }
-                
-                self.userLocation = newLocation
             }
+            
+            DispatchQueue.main.sync {
+                self.userLocation = newLocation
+
+            }
+            
         }
         
     }

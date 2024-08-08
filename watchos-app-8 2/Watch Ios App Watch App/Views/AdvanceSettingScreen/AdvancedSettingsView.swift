@@ -16,6 +16,10 @@ struct AdvancedSettingsView: View {
     @State private var selectedStorageAccountName: String = "Select Device"
     @State private var isStorageAccountNameDropdown = false
     @State private var isFileShareNamesDropdown = false
+    @State private var isIoTHubDropdown = false
+    
+    @State private var selectedIoTHubName: String = "Please Select HUB"
+
     @State private var rotationDegreesForSASToken = 0.0
     @State private var rotationDegreesForFolderNames = 0.0
     @State private var storageAccountNamesLocalArr: [String] = storageAccountNamesArr
@@ -23,6 +27,7 @@ struct AdvancedSettingsView: View {
     
     @State private var iotHubDeviceIDs = [String]()
     @State private var iotDeviceSASTokens = [String]()
+    @State private var iotHubList = [String]()
     
     var body: some View {
         ScrollView {
@@ -55,16 +60,16 @@ struct AdvancedSettingsView: View {
                         
                         isStorageAndFileNameRefreshBtnTapped = true
                         FirebaseDatabaseHelper().fetchDataFromFirebase()
-                       
+                        
                         let data = CommonClass().retrieveFromUserDefaults()
-                        if let ioTHubDevices = data?["IoTHubDevices"] as? [String: String] {
+                        if let ioTHubDevices = data?["IoTDevices"] as? [String: String] {
                             print(ioTHubDevices)
                             iotHubDeviceIDs.removeAll()
                             for (_, value) in ioTHubDevices {
                                 self.iotHubDeviceIDs.append(value)
-                              }
+                            }
                         }else{
-                            print("error in : ioTHubDevices ")
+                            print("error in : IoTDevices ")
                         }
                         if let deviceSAS = data?["IotHubSASToken"] as? [String: String] {
                             self.iotDeviceSASTokens.removeAll()
@@ -74,6 +79,15 @@ struct AdvancedSettingsView: View {
                             }
                         }else{
                             print("error in : IotHubSASToken ")
+                        }
+                        if let hostNames = data?["IoTHostName"] as? [String : String] {
+                            self.iotHubList.removeAll()
+                            print(hostNames)
+                            for(key,_) in hostNames {
+                                self.iotHubList.append(key)
+                            }
+                        }else{
+                            print("error in : IoTHostName ")
                         }
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -97,7 +111,7 @@ struct AdvancedSettingsView: View {
                     }
                 }) {
                     HStack {
-                      
+                        
                         Text(selectedStorageAccountName)
                             .foregroundColor(selectedStorageAccountName == nil ? .gray : .white)
                             .font(.system(size: 14))
@@ -116,7 +130,7 @@ struct AdvancedSettingsView: View {
                     storageAccountNamesDropdownView,
                     alignment: .top
                 )
-            
+                
                 // Conditional spacing to prevent overlap
                 if isStorageAccountNameDropdown {
                     Spacer(minLength: calculateDropdownHeight(for: storageAccountNamesArr.count) <= 50 ? 30 : calculateDropdownHeight(for: storageAccountNamesArr.count) )
@@ -155,6 +169,43 @@ struct AdvancedSettingsView: View {
             }else{
                 Spacer(minLength: 10)
             }
+            //hostName
+          //  if currentDeviceIndex == 0 {
+            Button(action: {
+                withAnimation {
+                    self.isIoTHubDropdown.toggle()
+                }
+            }) {
+                HStack {
+                    Text(selectedIoTHubName)
+                        .foregroundColor(selectedIoTHubName == nil ? .gray : .white)
+                        .font(.system(size: 14))
+                        .lineLimit(1)
+                    Spacer()
+                    Image(systemName: "chevron.down.circle")
+                        .rotationEffect(.degrees(isIoTHubDropdown ? 180 : 0))
+                        .foregroundColor(.blue)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.black)
+                .cornerRadius(15)
+                
+            }
+            .overlay(
+                showIoTHubDropDown,
+                alignment: .top
+            )
+            .padding([.leading, .trailing], 5)
+            
+            if isIoTHubDropdown {
+                Spacer(minLength: calculateDropdownHeight(for: iotHubList.count) <= 50 ?  30 : calculateDropdownHeight(for: iotHubList.count) )
+            }else{
+                Spacer(minLength: 10)
+            }
+            
+      //  }
+            
             if currentDeviceIndex == 1 {
             Divider()
             
@@ -218,7 +269,7 @@ struct AdvancedSettingsView: View {
         .onAppear() {
             
             let data = CommonClass().retrieveFromUserDefaults()
-            if let ioTHubDevices = data?["IoTHubDevices"] as? [String: String] {
+            if let ioTHubDevices = data?["IoTDevices"] as? [String: String] {
                 iotHubDeviceIDs.removeAll()
                 print(ioTHubDevices)
                 for (_, value) in ioTHubDevices {
@@ -226,9 +277,8 @@ struct AdvancedSettingsView: View {
                 }
                 print(iotHubDeviceIDs)
             }else{
-                print("error in : ioTHubDevices ")
+                print("error in : IoTDevices ")
             }
-            
             if let deviceSAS = data?["IotHubSASToken"] as? [String: String] {
                 self.iotDeviceSASTokens.removeAll()
                 print(deviceSAS)
@@ -237,6 +287,23 @@ struct AdvancedSettingsView: View {
                 }
             }else{
                 print("error in : IotHubSASToken ")
+            }
+            
+            if let hostNames = data?["IoTHostName"] as? [String : String] {
+                self.iotHubList.removeAll()
+                print(hostNames)
+                for(key,_) in hostNames {
+                    self.iotHubList.append(key)
+                }
+            }else{
+                print("error in : IoTHostName ")
+            }
+            
+            
+            if let selectedDivce = UserDefaults.standard.value(forKey: "currentDeviceIndex"){
+                currentDeviceIndex = selectedDivce as! Int
+            }else{
+                currentDeviceIndex = 0
             }
             
             if let savedSelectedStorageAccountName = UserDefaults.standard.string(forKey: storageAccountNameDefaultsKey) {
@@ -272,35 +339,36 @@ struct AdvancedSettingsView: View {
     private var storageAccountNamesDropdownView: some View {
         Group {
             if isStorageAccountNameDropdown {
+                let requiredArray = currentDeviceIndex == 0 ? iotHubDeviceIDs : storageAccountNamesLocalArr
                 VStack(alignment: .leading) {
                     List {
-                        if storageAccountNamesLocalArr.isEmpty {
+                        let requiredArray = currentDeviceIndex == 0 ? iotHubDeviceIDs : storageAccountNamesLocalArr
+                        if requiredArray.isEmpty {
                             Text("No Option")
                                 .foregroundColor(.black)
                                 .font(.system(size: 14))
                                 .padding()
                         } else {
-                            let requiredArray = currentDeviceIndex == 0 ? iotHubDeviceIDs : storageAccountNamesLocalArr
-                                ForEach(requiredArray, id: \.self) { storageAccountName in
-                                    Button(action: {
-                                        withAnimation {
-                                            if currentDeviceIndex == 0 {
-                                                UserDefaults.standard.set(storageAccountName, forKey: "currentSelectedDeviceID")
-                                            }
-
-                                            self.selectedStorageAccountName = storageAccountName
-                                            self.isStorageAccountNameDropdown = false
+                            ForEach(requiredArray, id: \.self) { storageAccountName in
+                                Button(action: {
+                                    withAnimation {
+                                        if currentDeviceIndex == 0 {
+                                            UserDefaults.standard.set(storageAccountName, forKey: "currentSelectedDeviceID")
                                         }
-                                    }) {
-                                        Text(storageAccountName.capitalized)
-                                            .foregroundColor(self.selectedStorageAccountName == storageAccountName ? .blue : .black)
-                                            .font(.system(size: 14))
-                                            .padding()
+                                        
+                                        self.selectedStorageAccountName = storageAccountName
+                                        self.isStorageAccountNameDropdown = false
                                     }
+                                }) {
+                                    Text(storageAccountName.capitalized)
+                                        .foregroundColor(self.selectedStorageAccountName == storageAccountName ? .blue : .black)
+                                        .font(.system(size: 14))
+                                        .padding()
                                 }
+                            }
                         }
                     }
-                    .frame(width: 120, height: calculateDropdownHeight(for: storageAccountNamesLocalArr.count))
+                    .frame(width: 120, height: calculateDropdownHeight(for: requiredArray.count))
                     .background(Color.white)
                     .cornerRadius(5)
                     .shadow(radius: 5)
@@ -315,9 +383,9 @@ struct AdvancedSettingsView: View {
     private var fileShareNamesDropdownView: some View {
         Group {
             if isFileShareNamesDropdown {
+                var requiredArray = currentDeviceIndex == 0 ? iotDeviceSASTokens : fileShareNamesArr
                 VStack(alignment: .leading) {
                     List {
-                        var requiredArray = currentDeviceIndex == 0 ? iotDeviceSASTokens : fileShareNamesArr
                         if requiredArray.isEmpty {
                             Text("No Option")
                                 .foregroundColor(.black)
@@ -345,13 +413,64 @@ struct AdvancedSettingsView: View {
                             }
                         }
                     }
-                    .frame(width: 120, height: calculateDropdownHeight(for: fileShareNamesArr.count))
+                    .frame(width: 120, height: calculateDropdownHeight(for: requiredArray.count))
                     .background(Color.white)
                     .cornerRadius(5)
                     .shadow(radius: 5)
                     .transition(.move(edge: .top).combined(with: .opacity))
                 }
             }
+        }
+    }
+    
+    private var showIoTHubDropDown: some View {
+        Group {
+            if isIoTHubDropdown {
+                VStack(alignment: .leading) {
+                    List {
+                        if iotHubList.isEmpty {
+                            Text("No Option")
+                                .foregroundColor(.black)
+                                .font(.system(size: 14))
+                                .padding()
+                        } else {
+                            ForEach(iotHubList, id: \.self) { fileShareName in
+                                Button(action: {
+                                    withAnimation {
+                                        print(fileShareName)
+                                        self.storeCurrentHubName(from: fileShareName)
+                                        self.isIoTHubDropdown = false
+                                    }
+                                }) {
+                                    Text(fileShareName.capitalized)
+                                        .foregroundColor(self.selectedIoTHubName == fileShareName ? .blue : .black)
+                                        .font(.system(size: 14))
+                                        .padding()
+                                }
+                            }
+                        }
+                    }
+                    .frame(width: 120, height: calculateDropdownHeight(for: iotHubList.count))
+                    .background(Color.white)
+                    .cornerRadius(5)
+                    .shadow(radius: 5)
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                }
+            }
+        }
+    }
+    
+    private func storeCurrentHubName(from hubName: String){
+        let data = CommonClass().retrieveFromUserDefaults()
+        if let iotHubs = data?["IoTHostName"] as? [String: String] {
+            for(key,value) in iotHubs {
+                if hubName == key {
+                    self.selectedIoTHubName = value
+                    UserDefaults.standard.set(value, forKey: "currentSelectedHUBName")
+                }
+            }
+        }else{
+            print("error in : currentSelectedHUBName ")
         }
     }
 
