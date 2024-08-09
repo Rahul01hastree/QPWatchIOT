@@ -8,11 +8,9 @@
 import SwiftUI
 import FirebaseDatabase
 import FirebaseCore
-//import WatchConnectivity
 
 @main
 struct Watch_Ios_App_Watch_AppApp: App {
-    //let session = WCSession.default
     
     init() {
         FirebaseApp.configure()
@@ -26,8 +24,6 @@ struct Watch_Ios_App_Watch_AppApp: App {
             print("SAS TOKEN : \(sasToken)")
             sasTokenNew = sasToken
         }
-       // session.activate()
-      //  InternetChecker.shared.session.activate()
         PersistentContainer.shared.saveContext()
         
     }

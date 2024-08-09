@@ -89,7 +89,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
                 
                 if selectedDeviceIndex == 0 {
-                    sendDataToIoTHub(from: newLocation, direction: "")
+                    sendDataToIoTHub(from: newLocation )
                 } else {
                     CommonClass.sendDataToServer(newLocation)
                 }
@@ -337,7 +337,7 @@ extension LocationManager {
     //}
     
     //MARK: - IOT API CALL
-    func sendDataToIoTHub(from location : CLLocation, direction: String ){
+    func sendDataToIoTHub(from location : CLLocation ){
         
         var speed: Double
         var speedInMiles: String = ""
@@ -350,12 +350,13 @@ extension LocationManager {
             speedInMiles = String(format: "%.2f", speed)
         }
         
+        var userDirection =  userDirection ?? ""
         let data = DeviceTelemetry(deviceID: currDeviceID,
                                    longitude: location.coordinate.longitude,
                                    latitude: location.coordinate.latitude,
                                    batteryLevel: CommonClass.updateBatteryLevel(),
                                    speed:speedInMiles,
-                                   direction: direction,
+                                   direction: userDirection,
                                    timeandDate: ISO8601DateFormatter().string(from: Date())
         )
         
