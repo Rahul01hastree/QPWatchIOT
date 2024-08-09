@@ -27,7 +27,6 @@ class IoTHubClient {
     func sendClientDataToIOT(userInfo: DeviceTelemetry, completion: @escaping (Result<Void, Error>) -> Void) {
         
         self.updateValueFromUserDefaults()
-       // let testingString = "https://Watch.azure-devices.net/devices/\(iotDeviceID)/messages/events?api-version=2020-09-30"
         let urlString = "\(iotHubName)/devices/\(iotDeviceID)/messages/events?api-version=2021-04-12"
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))

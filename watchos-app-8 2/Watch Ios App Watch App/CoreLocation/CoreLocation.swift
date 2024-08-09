@@ -17,7 +17,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     var checkCall: Int = 0
     var isConnected: Bool = false
     
-    
     @Published var updateFrequency: Double {
         didSet {
             UserDefaults.standard.set(updateFrequency, forKey: updateFrequencyUserDefaultsKey)
@@ -36,7 +35,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             updateFrequency = defaultUpdateFrequency
         }
         
+      
         super.init()
+            
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
@@ -76,40 +77,38 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("****latitude",newLocation.coordinate.latitude)
         print("****longitude",newLocation.coordinate.longitude)
         print("checkCall :\(checkCall)")
-        print("Is Network Available \(NetworkReachability().isInternetAvailable())")
-        NetworkMonitor().checkNetworkType()
         
         InternetChecker.shared.networkCall { [weak self] isConnected in
             guard let self = self else { return }
             
             if isConnected {
-
                 print("Internet connection is available >>>>>> * <<<<<< ")
-                
                 let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
-                
-                if selectedDeviceIndex == 0 {
-                    sendDataToIoTHub(from: newLocation )
-                } else {
-                    CommonClass.sendDataToServer(newLocation)
+                selectedDeviceIndex == 0 ? sendCurrentLocationToIOTHUB(from: newLocation) : CommonClass.sendDataToServer(newLocation)
+
+                let userStoredLocations = fetchStoredLocations()
+                if userStoredLocations.isEmpty {
+                    print("No data found in local storage.")
+                }else{
+                    print(userStoredLocations.count)
+                    for (index, userStoredLocation) in userStoredLocations.enumerated() {
+                        print("Location \(index): \(String(describing: userStoredLocation.timeStamp))")
+                    }
                 }
-                
-                //self.userLocation = newLocation
                 
             } else {
                 print("No internet connection")
-                
                 if CommonClass().getAvailableStorageSpace() > persistentContainer.minAllowedStorageSize {
                     print("current size :- \(CommonClass().getAvailableStorageSpace())")
-                    // self.userInfoToLocal(location: newLocation)
+                    self.userInfoToLocal(location: newLocation)
                 } else {
-                    //  delete50UserInfoEntries(location: newLocation)
+                    delete50UserInfoEntries(location: newLocation)
                 }
             }
             
             DispatchQueue.main.sync {
                 self.userLocation = newLocation
-
+                
             }
             
         }
@@ -184,52 +183,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 
 extension LocationManager {
-    
-    //MARK: - check Internet
-    
-    private func performNetworkRequest()-> Bool {
-        var request = URLRequest(url: URL(string: "https://www.google.com")!)
-        request.httpMethod = "HEAD"
-        var result: Bool = false
-        let task = URLSession.shared.dataTask(with: request) { _, response, error in
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                result = true
-            } else {
-                result = false
-            }
-        }
-        task.resume()
-        return result
-    }
-    
-    private func performNetwork() -> Bool {
-        
-        guard let url = URL(string: "https://www.google.com") else {
-            return false
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "HEAD"
-        
-//        let dispatchGroup = DispatchGroup()
-//        dispatchGroup.enter()
-//        
-//        var result: Bool = false
-//        let task = URLSession.shared.dataTask(with: request) { _, response, error in
-//            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-//                result = true
-//            } else {
-//                result = false
-//            }
-//            dispatchGroup.leave()
-//        }
-//        task.resume()
-//        
-//        dispatchGroup.wait() // Wait for the network request to complete
-//        return result
-        return true
-    }
-    
     //MARK: - Store In Core Data
     
     
@@ -293,6 +246,20 @@ extension LocationManager {
         }
     }
     
+    private func fetchStoredLocations() -> [UserInfo] {
+        let fetchRequest: NSFetchRequest<UserInfo> = UserInfo.fetchRequest()
+        
+        do {
+            let locations = try persistentContainer.context.fetch(fetchRequest)
+            return locations
+        } catch {
+            print("Failed to fetch locations: \(error)")
+            return []
+        }
+    }
+
+    
+    
     
     //MARK: - Delete from Core Data
     
@@ -318,6 +285,20 @@ extension LocationManager {
         }
     }
     
+    private func deletePerticularLocationFromCoreData(location: UserInfo, index: Int) {
+        let context = persistentContainer.context
+        
+        context.delete(location)  // Mark the object for deletion
+
+        do {
+            try context.save()  // Persist the deletion
+            print("entry no \(index) +++ Last location deleted from Core Data.")
+        } catch {
+            print("Failed to delete location from Core Data: \(error)")
+        }
+    }
+
+    
     private func deleteAllEntries() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = UserInfo.fetchRequest()
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -334,10 +315,10 @@ extension LocationManager {
         }
     }
     
-    //}
     
-    //MARK: - IOT API CALL
-    func sendDataToIoTHub(from location : CLLocation ){
+    //MARK: - Azure IOT API CALL
+    
+    private func sendCurrentLocationToIOTHUB(from location : CLLocation ){
         
         var speed: Double
         var speedInMiles: String = ""
@@ -359,11 +340,10 @@ extension LocationManager {
                                    direction: userDirection,
                                    timeandDate: ISO8601DateFormatter().string(from: Date())
         )
-        
         IoTHubClient.shared.sendClientDataToIOT(userInfo: data ) { result in
             switch result {
             case .success(let success):
-                print("data sended to iot : \(success) ++++++++++ >>>> ***")
+                print("Current sended to iot : \(success) ++++++++++ >>>> ***")
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
@@ -371,5 +351,37 @@ extension LocationManager {
         }
     }
     
+    private func sendPastLocationToIOTHUB(from location : UserInfo, index : Int) {
+        
+        let requiredData = DeviceTelemetry(deviceID: currDeviceID,
+                                           longitude: location.longitude,
+                                           latitude:location.latitude,
+                                           batteryLevel: location.batteryLevel,
+                                           speed: location.speed ?? "",
+                                           direction: location.direction ?? "",
+                                           timeandDate: location.timeStamp ?? "")
+        
+        
+        IoTHubClient.shared.sendClientDataToIOT(userInfo: requiredData) { result in
+            switch result {
+            case .success(let success):
+                print("Past sended to iot : \(success) ++++++++++ >>>> *")
+                self.deletePerticularLocationFromCoreData(location: location, index: index)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+        
+    }
+    
 }
 
+//MARK: - Azure Store API CALL
+extension LocationManager {
+    
+    private func sendPastLocationToStorage(from location: UserInfo) {
+        
+    }
+    
+    
+}

@@ -91,42 +91,6 @@ class FirebaseDatabaseHelper {
     }
     
     
-//    private func dataParas(from jsonData: [String: Any]) -> DataModel? {
-//        // Extract hostName
-//        guard let hostNameDict = jsonData["hostName"] as? [String: String] else {
-//            print("Failed to parse hostName")
-//            return nil
-//        }
-//        
-//        // Extract IoTHubDevices
-//        guard let ioTHubDevicesDict = jsonData["IoTHubDevices"] as? [String: String] else {
-//            print("Failed to parse IoTHubDevices")
-//            return nil
-//        }
-//        
-//        // Convert IoTHubDevices dictionary to an array of IoTHubDeviceOption
-//        var ioTHubDevices: [IoTHubDeviceOption] = []
-//        for (key, value) in ioTHubDevicesDict {
-//            let deviceOption = IoTHubDeviceOption(option1: key, option2: value)
-//            ioTHubDevices.append(deviceOption)
-//        }
-//        
-//        // Extract iotHubSASToken
-//        guard let iotHubSASTokenDict = jsonData["IotHubSASToken"] as? [String: String] else {
-//            print("Failed to parse IotHubSASToken")
-//            return nil
-//        }
-//        
-//        // Construct DataModel
-//        let dataModel = DataModel(
-//            hostName: hostNameDict,
-//            ioTHubDevices: ioTHubDevices,
-//            iotHubSASToken: iotHubSASTokenDict
-//        )
-//        
-//        return dataModel
-//    }
-    
     
     
 }

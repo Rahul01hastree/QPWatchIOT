@@ -12,7 +12,6 @@ class NetworkMonitor {
     func checkNetworkType() {
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { path in
-//            print(path.status)
         DispatchQueue.main.async {
             if path.status == .satisfied {
                 if path.usesInterfaceType(.wifi) {
