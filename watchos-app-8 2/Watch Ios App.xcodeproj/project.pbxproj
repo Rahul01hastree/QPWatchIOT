@@ -32,6 +32,7 @@
 		CCE4C4CB2C4FF2AB00B62516 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4C92C4FF2AB00B62516 /* CoreData.xcdatamodeld */; };
 		CCE4C4CE2C4FF42100B62516 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */; };
 		CCE4C4CF2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */; };
+		CCE776382C69D7EB000B5B22 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE776372C69D7EB000B5B22 /* CoreDataHelper.swift */; };
 		CCEA3EC12C4FC8B7005DF44E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */; };
 		CCF564D02C62181B0069B857 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF564CF2C62181B0069B857 /* DataModel.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		CCE4C4CA2C4FF2AB00B62516 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CCE776372C69D7EB000B5B22 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		CCF564CF2C62181B0069B857 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +228,7 @@
 				CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */,
 				CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */,
 				CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */,
+				CCE776372C69D7EB000B5B22 /* CoreDataHelper.swift */,
 				CCE4C4C92C4FF2AB00B62516 /* CoreData.xcdatamodeld */,
 			);
 			path = Shared;
@@ -349,6 +352,7 @@
 				CCEA3EC12C4FC8B7005DF44E /* PersistentContainer.swift in Sources */,
 				9ACF70B72B287FB800B1C832 /* CommonClass.swift in Sources */,
 				CCE4C4CB2C4FF2AB00B62516 /* CoreData.xcdatamodeld in Sources */,
+				CCE776382C69D7EB000B5B22 /* CoreDataHelper.swift in Sources */,
 				12823E4F2B316EF500C21F4B /* NetworkClass.swift in Sources */,
 				12823E4C2B31624C00C21F4B /* DeviceTelemetryModel.swift in Sources */,
 				12E4E2462BAD54A30028ECA6 /* FIrebaseDatabaseHelper.swift in Sources */,
