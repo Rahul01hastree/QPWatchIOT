@@ -23,6 +23,7 @@ final class InternetChecker {
             print("Network status updated: \(self?.isConnected == true ? "Connected" : "Not Connected")")
         }
         monitor.start(queue: queue)
+        
     }
     
     

@@ -85,7 +85,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 print("Internet connection is available >>>>>> * <<<<<< ")
                 let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
                 selectedDeviceIndex == 0 ? sendCurrentLocationToIOTHUB(from: newLocation) : CommonClass.sendDataToServer(newLocation)
-
                 let userStoredLocations = CoreDataHelper.shared.fetchStoredLocations()
                 if userStoredLocations.isEmpty {
                     print("No data found in local storage.")

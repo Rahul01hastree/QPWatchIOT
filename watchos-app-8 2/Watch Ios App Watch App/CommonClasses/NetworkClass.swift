@@ -9,6 +9,7 @@ import Foundation
 import Network
 
 class NetworkMonitor {
+    
     func checkNetworkType() {
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { path in
