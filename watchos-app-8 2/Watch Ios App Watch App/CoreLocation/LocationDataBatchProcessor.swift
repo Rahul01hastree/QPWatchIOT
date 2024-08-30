@@ -1,10 +1,3 @@
-//
-//  LocationDataBatchProcessor.swift
-//  QP HT Applicationn
-//
-//  Created by Rahul Gangwar on 12.08.2024.
-//
-
 import Foundation
 import CoreData
 import WatchKit
@@ -13,7 +6,6 @@ class LocationDataBatchProcessor {
     
     private let batchProcessingSemaphore = DispatchSemaphore(value: 1)
     private let persistentContainer: NSPersistentContainer
-    private var isProcessingBatches = false
     
     init(persistentContainer: NSPersistentContainer) {
         self.persistentContainer = persistentContainer
@@ -33,15 +25,58 @@ class LocationDataBatchProcessor {
                 Array(userStoredLocations[$0..<min($0 + batchSize, userStoredLocations.count)])
             }
             
-//            for (index, batch) in batches.enumerated() {
-//                self.sendBatchToIOTHUB(batch: batch) {
-//                    print("Batch \(index + 1) sent successfully.")
-//                    if index == batches.count - 1 {
-//                        self.batchProcessingSemaphore.signal()  // Signal the semaphore when done
-//                    }
-//                }
-//            }
+            var batchesProcessed = 0
+            
+            for batch in batches {
+                self.sendBatchToIOTHUB(batch: batch) { success in
+                    if success {
+                        print("Batch sent successfully.")
+                        self.deleteSentRecords(batch: batch)
+                    }
+                    
+                    batchesProcessed += 1
+                    if batchesProcessed == batches.count {
+                        self.batchProcessingSemaphore.signal()
+                        self.processStoredLocationsInBatches(batchSize: batchSize) // Recurse to process next batches
+                    }
+                }
+            }
+        }
+    }
+    
+    private func sendBatchToIOTHUB(batch: [UserInfo], completion: @escaping (Bool) -> Void) {
+        let data = DeviceTelemetry(deviceID: currDeviceID,
+                                   longitude: batch[0].longitude,
+                                   latitude: batch[0].latitude,
+                                   batteryLevel: batch[0].batteryLevel,
+                                   speed:batch[0].speed ?? "",
+                                   direction: batch[0].direction ?? "",
+                                   timeandDate: batch[0].timeStamp ?? ""
+        )
+        IoTHubClient.shared.sendClientDataToIOT(userInfo: data) { result in
+            switch result {
+            case .success:
+                completion(true)
+            case .failure:
+                completion(false)
+            }
+        }
+    }
+    
+    private func deleteSentRecords(batch: [UserInfo]) {
+        let context = persistentContainer.viewContext
+        let userStoredLocations = CoreDataHelper.shared.fetchStoredLocations()
+        print(userStoredLocations.count)
+        batch.forEach { userInfo in
+            context.delete(userInfo)
+        }
+        
+        do {
+            print(userStoredLocations.count)
+            print("to delete sent records :----- ")
+            try context.save()
+        } catch {
+            print("Failed to delete sent records: \(error)")
         }
     }
 }
-

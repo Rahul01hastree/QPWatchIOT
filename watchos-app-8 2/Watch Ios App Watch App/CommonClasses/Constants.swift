@@ -35,7 +35,7 @@ let sasTokenOldDefaultsKey = "savedOldSASToken"
 
 var locationManager = LocationManager()
 
-let networkMonitor = NetworkMonitor()
+//let networkMonitor = NetworkMonitor()
 
 var deviceBatteryPercentage = 0.0
 

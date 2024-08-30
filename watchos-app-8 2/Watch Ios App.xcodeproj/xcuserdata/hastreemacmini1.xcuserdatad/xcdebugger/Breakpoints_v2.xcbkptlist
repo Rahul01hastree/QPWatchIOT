@@ -3,4 +3,133 @@
    uuid = "CE2A87F3-F713-43DB-89C9-EBF49690288A"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F0FA0AB-3310-4ED2-A66A-F53661A7E402"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Ios App Watch App/CoreLocation/LocationDataBatchProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "deleteSentRecords(batch:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1F0FA0AB-3310-4ED2-A66A-F53661A7E402 - 88ca52c67fe7e5da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QP_HT_Applicationn.LocationDataBatchProcessor.deleteSentRecords(batch: Swift.Array&lt;QP_HT_Applicationn.UserInfo&gt;) -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hastreemacmini1/Desktop/QPWatchIOT/watchos-app-8%202/Watch%20Ios%20App%20Watch%20App/CoreLocation/LocationDataBatchProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "664">
+               </Location>
+               <Location
+                  uuid = "1F0FA0AB-3310-4ED2-A66A-F53661A7E402 - 88ca52c67fe7e27f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QP_HT_Applicationn.LocationDataBatchProcessor.deleteSentRecords(batch: Swift.Array&lt;QP_HT_Applicationn.UserInfo&gt;) -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hastreemacmini1/Desktop/QPWatchIOT/watchos-app-8%202/Watch%20Ios%20App%20Watch%20App/CoreLocation/LocationDataBatchProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1640">
+               </Location>
+               <Location
+                  uuid = "1F0FA0AB-3310-4ED2-A66A-F53661A7E402 - 88ca52c67fe7e27f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QP_HT_Applicationn.LocationDataBatchProcessor.deleteSentRecords(batch: Swift.Array&lt;QP_HT_Applicationn.UserInfo&gt;) -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hastreemacmini1/Desktop/QPWatchIOT/watchos-app-8%202/Watch%20Ios%20App%20Watch%20App/CoreLocation/LocationDataBatchProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1040">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B55638A3-BFE3-4BC7-AF46-758518801F99"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Ios App Watch App/ConnectivityManager/ConnectivityManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "sendLocalDataToLocal()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B55638A3-BFE3-4BC7-AF46-758518801F99 - c41e6dbd83f72e1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QP_HT_Applicationn.ConnectivityManager.sendLocalDataToLocal() -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hastreemacmini1/Desktop/QPWatchIOT/watchos-app-8%202/Watch%20Ios%20App%20Watch%20App/ConnectivityManager/ConnectivityManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "B55638A3-BFE3-4BC7-AF46-758518801F99 - c41e6dbd83f72e1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QP_HT_Applicationn.ConnectivityManager.sendLocalDataToLocal() -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hastreemacmini1/Desktop/QPWatchIOT/watchos-app-8%202/Watch%20Ios%20App%20Watch%20App/ConnectivityManager/ConnectivityManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0694187B-61D2-4BFC-86DC-1F898C7EEE52"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Watch Ios App Watch App/ConnectivityManager/ConnectivityManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "updateConnectivityStatus(path:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

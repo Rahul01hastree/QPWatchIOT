@@ -24,6 +24,7 @@ struct Watch_Ios_App_Watch_AppApp: App {
             print("SAS TOKEN : \(sasToken)")
             sasTokenNew = sasToken
         }
+        ConnectivityManager.shared.startMonitoring()
         PersistentContainer.shared.saveContext()
         
     }

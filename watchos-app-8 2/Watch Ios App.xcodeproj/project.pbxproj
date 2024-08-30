@@ -27,6 +27,8 @@
 		9ACF70A62B286AA700B1C832 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF70A52B286AA700B1C832 /* Preview Assets.xcassets */; };
 		9ACF70B12B2878EF00B1C832 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF70B02B2878EF00B1C832 /* SettingsView.swift */; };
 		9ACF70B72B287FB800B1C832 /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF70B62B287FB700B1C832 /* CommonClass.swift */; };
+		CC0B1FEC2C81AC5800B826BC /* ConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1FEB2C81AC5800B826BC /* ConnectivityManager.swift */; };
+		CC0B1FEE2C81AE3500B826BC /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0B1FED2C81AE3500B826BC /* Network.framework */; };
 		CC42BAC52C63457000BF17A2 /* InternetChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42BAC42C63457000BF17A2 /* InternetChecker.swift */; };
 		CCA96F032C577D1D003E0A68 /* IoTHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */; };
 		CCE4C4CB2C4FF2AB00B62516 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4C92C4FF2AB00B62516 /* CoreData.xcdatamodeld */; };
@@ -34,7 +36,6 @@
 		CCE4C4CF2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */; };
 		CCE776382C69D7EB000B5B22 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE776372C69D7EB000B5B22 /* CoreDataHelper.swift */; };
 		CCE7763A2C69E1EA000B5B22 /* LocationDataBatchProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE776392C69E1EA000B5B22 /* LocationDataBatchProcessor.swift */; };
-		CCE776412C69F116000B5B22 /* NetworkMonitorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE776402C69F116000B5B22 /* NetworkMonitorTest.swift */; };
 		CCEA3EC12C4FC8B7005DF44E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */; };
 		CCF564D02C62181B0069B857 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF564CF2C62181B0069B857 /* DataModel.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,8 @@
 		9ACF70A52B286AA700B1C832 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9ACF70B02B2878EF00B1C832 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9ACF70B62B287FB700B1C832 /* CommonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
+		CC0B1FEB2C81AC5800B826BC /* ConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityManager.swift; sourceTree = "<group>"; };
+		CC0B1FED2C81AE3500B826BC /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.2.sdk/System/Library/Frameworks/Network.framework; sourceTree = DEVELOPER_DIR; };
 		CC42BAC42C63457000BF17A2 /* InternetChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetChecker.swift; sourceTree = "<group>"; };
 		CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTHubClient.swift; sourceTree = "<group>"; };
 		CCE4C4CA2C4FF2AB00B62516 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 		CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CCE776372C69D7EB000B5B22 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		CCE776392C69E1EA000B5B22 /* LocationDataBatchProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataBatchProcessor.swift; sourceTree = "<group>"; };
-		CCE776402C69F116000B5B22 /* NetworkMonitorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorTest.swift; sourceTree = "<group>"; };
 		CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		CCF564CF2C62181B0069B857 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				12F5D46A2BAC1647006C32CF /* FirebaseDatabase in Frameworks */,
 				12F5D4762BAC1647006C32CF /* FirebaseInstallations in Frameworks */,
 				12F5D46C2BAC1647006C32CF /* FirebaseDatabaseSwift in Frameworks */,
+				CC0B1FEE2C81AE3500B826BC /* Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +176,6 @@
 				12E4E2452BAD54A30028ECA6 /* FIrebaseDatabaseHelper.swift */,
 				CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */,
 				CC42BAC42C63457000BF17A2 /* InternetChecker.swift */,
-				CCE776402C69F116000B5B22 /* NetworkMonitorTest.swift */,
 			);
 			path = CommonClasses;
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 				1257AB652B2AF622004BB7D5 /* Watch-Ios-App-Watch-App-Info.plist */,
 				12F5D4852BAC1B3E006C32CF /* GoogleService-Info.plist */,
 				9ACF709E2B286AA500B1C832 /* Watch_Ios_AppApp.swift */,
+				CC0B1FEA2C81AC1600B826BC /* ConnectivityManager */,
 				CCEA3EBC2C4FC6F6005DF44E /* Shared */,
 				1257AB612B2AF3D7004BB7D5 /* Views */,
 				1257AB642B2AF44E004BB7D5 /* CommonClasses */,
@@ -232,8 +235,17 @@
 		CC0640042C69F7BE00E74589 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC0B1FED2C81AE3500B826BC /* Network.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC0B1FEA2C81AC1600B826BC /* ConnectivityManager */ = {
+			isa = PBXGroup;
+			children = (
+				CC0B1FEB2C81AC5800B826BC /* ConnectivityManager.swift */,
+			);
+			path = ConnectivityManager;
 			sourceTree = "<group>";
 		};
 		CCEA3EBC2C4FC6F6005DF44E /* Shared */ = {
@@ -369,6 +381,7 @@
 				CCE776382C69D7EB000B5B22 /* CoreDataHelper.swift in Sources */,
 				12823E4F2B316EF500C21F4B /* NetworkClass.swift in Sources */,
 				12823E4C2B31624C00C21F4B /* DeviceTelemetryModel.swift in Sources */,
+				CC0B1FEC2C81AC5800B826BC /* ConnectivityManager.swift in Sources */,
 				12E4E2462BAD54A30028ECA6 /* FIrebaseDatabaseHelper.swift in Sources */,
 				CCE4C4CE2C4FF42100B62516 /* UserInfo+CoreDataClass.swift in Sources */,
 				12E4E24A2BAD57BA0028ECA6 /* DropDownMenuView.swift in Sources */,
@@ -377,7 +390,6 @@
 				1257AB5E2B2AF39F004BB7D5 /* CoreLocation.swift in Sources */,
 				CCE4C4CF2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift in Sources */,
 				9ACF70B12B2878EF00B1C832 /* SettingsView.swift in Sources */,
-				CCE776412C69F116000B5B22 /* NetworkMonitorTest.swift in Sources */,
 				9ACF70A12B286AA500B1C832 /* ContentView.swift in Sources */,
 				CCF564D02C62181B0069B857 /* DataModel.swift in Sources */,
 				12CF6AD42B2C6F4500BF4E2B /* AzureStorageHelper.swift in Sources */,

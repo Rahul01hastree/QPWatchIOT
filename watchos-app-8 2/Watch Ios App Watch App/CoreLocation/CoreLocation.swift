@@ -78,39 +78,68 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("****longitude",newLocation.coordinate.longitude)
         print("checkCall :\(checkCall)")
         
-        InternetChecker.shared.networkCall { [weak self] isConnected in
-            guard let self = self else { return }
+        print(ConnectivityManager.shared.isConnected)
+        
+        if ConnectivityManager.shared.isConnected {
             
-            if isConnected {
-                print("Internet connection is available >>>>>> * <<<<<< ")
-                let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
-                selectedDeviceIndex == 0 ? sendCurrentLocationToIOTHUB(from: newLocation) : CommonClass.sendDataToServer(newLocation)
-                let userStoredLocations = CoreDataHelper.shared.fetchStoredLocations()
-                if userStoredLocations.isEmpty {
-                    print("No data found in local storage.")
-                }else{
-                    print(userStoredLocations.count)
-                    for (index, userStoredLocation) in userStoredLocations.enumerated() {
-                        print("Location \(index): \(String(describing: userStoredLocation.timeStamp))")
-                    }
+            print("Internet connection is available >>>>>> * <<<<<< ")
+            let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
+            selectedDeviceIndex == 0 ? sendCurrentLocationToIOTHUB(from: newLocation) : CommonClass.sendDataToServer(newLocation)
+            let userStoredLocations = CoreDataHelper.shared.fetchStoredLocations()
+            if userStoredLocations.isEmpty {
+                print("No data found in local storage.")
+            }else{
+                print(userStoredLocations.count)
+                for (index, userStoredLocation) in userStoredLocations.enumerated() {
+                    print("Location \(index): \(String(describing: userStoredLocation.timeStamp))")
                 }
-                
+            }
+
+        }else {
+            print("No internet connection")
+            if CommonClass().getAvailableStorageSpace() > persistentContainer.minAllowedStorageSize {
+                print("current size :- \(CommonClass().getAvailableStorageSpace())")
+                CoreDataHelper.shared.userInfoToLocal(location: newLocation)
             } else {
-                print("No internet connection")
-                if CommonClass().getAvailableStorageSpace() > persistentContainer.minAllowedStorageSize {
-                    print("current size :- \(CommonClass().getAvailableStorageSpace())")
-                    CoreDataHelper.shared.userInfoToLocal(location: newLocation)
-                } else {
-                    CoreDataHelper.shared.delete50UserInfoEntries(location: newLocation)
-                }
+                CoreDataHelper.shared.delete50UserInfoEntries(location: newLocation)
             }
-            
-            DispatchQueue.main.sync {
-                self.userLocation = newLocation
-                
-            }
-            
+
         }
+        
+        
+//        InternetChecker.shared.networkCall { [weak self] isConnected in
+//            guard let self = self else { return }
+//            
+//            if isConnected {
+//                print("Internet connection is available >>>>>> * <<<<<< ")
+//                let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
+//                selectedDeviceIndex == 0 ? sendCurrentLocationToIOTHUB(from: newLocation) : CommonClass.sendDataToServer(newLocation)
+//                let userStoredLocations = CoreDataHelper.shared.fetchStoredLocations()
+//                if userStoredLocations.isEmpty {
+//                    print("No data found in local storage.")
+//                }else{
+//                    print(userStoredLocations.count)
+//                    for (index, userStoredLocation) in userStoredLocations.enumerated() {
+//                        print("Location \(index): \(String(describing: userStoredLocation.timeStamp))")
+//                    }
+//                }
+//                
+//            } else {
+//                print("No internet connection")
+//                if CommonClass().getAvailableStorageSpace() > persistentContainer.minAllowedStorageSize {
+//                    print("current size :- \(CommonClass().getAvailableStorageSpace())")
+//                    CoreDataHelper.shared.userInfoToLocal(location: newLocation)
+//                } else {
+//                    CoreDataHelper.shared.delete50UserInfoEntries(location: newLocation)
+//                }
+//            }
+//            
+//            DispatchQueue.main.sync {
+//                self.userLocation = newLocation
+//                
+//            }
+//            
+//        }
         
     }
     

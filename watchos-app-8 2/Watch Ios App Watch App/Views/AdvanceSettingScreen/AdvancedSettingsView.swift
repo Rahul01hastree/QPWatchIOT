@@ -170,7 +170,7 @@ struct AdvancedSettingsView: View {
                 Spacer(minLength: 10)
             }
             //hostName
-          //  if currentDeviceIndex == 0 {
+            if currentDeviceIndex == 0 {
             Button(action: {
                 withAnimation {
                     self.isIoTHubDropdown.toggle()
@@ -204,7 +204,7 @@ struct AdvancedSettingsView: View {
                 Spacer(minLength: 10)
             }
             
-      //  }
+        }
             
             if currentDeviceIndex == 1 {
             Divider()
