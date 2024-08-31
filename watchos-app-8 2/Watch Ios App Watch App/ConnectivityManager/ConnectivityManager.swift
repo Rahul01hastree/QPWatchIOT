@@ -26,7 +26,7 @@ class ConnectivityManager: NSObject {
 
     private func updateConnectivityStatus(path: NWPath) {
         if path.status == .satisfied {
-            sendLocalDataToLocal()
+            self.sendLocalDataToLocal()
         } else {
             print("Internet is disconnected")
         }

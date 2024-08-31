@@ -54,11 +54,9 @@ class LocaldataProcessor {
     }
     
     private func sendBatchToIOTHUBTest(batch: UserInfo, completion: @escaping (Bool) -> Void) {
-        // Simulate sending data to IoT Hub
-        // Replace this with actual implementation of sending data
+        
         DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
             // Simulate network delay
-            // Assume the sending is successful
             let data = DeviceTelemetry(deviceID: currDeviceID,
                                        longitude: batch.longitude,
                                        latitude: batch.latitude,
