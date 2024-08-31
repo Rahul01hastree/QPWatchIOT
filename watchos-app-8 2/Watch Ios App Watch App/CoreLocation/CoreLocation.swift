@@ -85,7 +85,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             print("Internet connection is available >>>>>> * <<<<<< ")
             let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
             selectedDeviceIndex == 0 ? sendCurrentLocationToIOTHUB(from: newLocation) : CommonClass.sendDataToServer(newLocation)
-            let userStoredLocations = CoreDataHelper.shared.fetchStoredLocations()
+            let userStoredLocations = CoredataManager.shared.fetchStoredLocations()
+            //CoreDataHelper.shared.fetchStoredLocations()
             if userStoredLocations.isEmpty {
                 print("No data found in local storage.")
             }else{
@@ -99,9 +100,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             print("No internet connection")
             if CommonClass().getAvailableStorageSpace() > persistentContainer.minAllowedStorageSize {
                 print("current size :- \(CommonClass().getAvailableStorageSpace())")
-                CoreDataHelper.shared.userInfoToLocal(location: newLocation)
+                CoredataManager.shared.saveUserIntoToLocally(location: newLocation)
             } else {
-                CoreDataHelper.shared.delete50UserInfoEntries(location: newLocation)
+                CoredataManager.shared.clearCoreDataWhenFilled(limit: 100, newLocation: newLocation)
             }
 
         }
@@ -244,37 +245,27 @@ extension LocationManager {
         }
     }
     
-    private func sendPastLocationToIOTHUB(from location : UserInfo, index : Int) {
-        
-        let requiredData = DeviceTelemetry(deviceID: currDeviceID,
-                                           longitude: location.longitude,
-                                           latitude:location.latitude,
-                                           batteryLevel: location.batteryLevel,
-                                           speed: location.speed ?? "",
-                                           direction: location.direction ?? "",
-                                           timeandDate: location.timeStamp ?? "")
-        
-        
-        IoTHubClient.shared.sendClientDataToIOT(userInfo: requiredData) { result in
-            switch result {
-            case .success(let success):
-                print("Past sended to iot : \(success) ++++++++++ >>>> *")
-                CoreDataHelper.shared.deletePerticularLocationFromCoreData(location: location, index: index)
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
-        }
-        
-    }
-    
-}
-
-//MARK: - Azure Store API CALL
-extension LocationManager {
-    
-    private func sendPastLocationToStorage(from location: UserInfo) {
-        
-    }
-    
+//    private func sendPastLocationToIOTHUB(from location : UserInfo, index : Int) {
+//        
+//        let requiredData = DeviceTelemetry(deviceID: currDeviceID,
+//                                           longitude: location.longitude,
+//                                           latitude:location.latitude,
+//                                           batteryLevel: location.batteryLevel,
+//                                           speed: location.speed ?? "",
+//                                           direction: location.direction ?? "",
+//                                           timeandDate: location.timeStamp ?? "")
+//        
+//        
+//        IoTHubClient.shared.sendClientDataToIOT(userInfo: requiredData) { result in
+//            switch result {
+//            case .success(let success):
+//                print("Past sended to iot : \(success) ++++++++++ >>>> *")
+//                CoreDataHelper.shared.deletePerticularLocationFromCoreData(location: location, index: index)
+//            case .failure(let failure):
+//                print(failure.localizedDescription)
+//            }
+//        }
+//        
+//    }
     
 }

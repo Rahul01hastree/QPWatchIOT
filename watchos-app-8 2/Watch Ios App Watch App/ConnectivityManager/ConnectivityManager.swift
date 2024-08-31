@@ -32,16 +32,11 @@ class ConnectivityManager: NSObject {
         }
     }
     
-    
     private func sendLocalDataToLocal(){
         print("current internet state :- \(isConnected)")
-        let persistentContainer = PersistentContainer.shared.persistentContainer
         if isConnected{
-           // LocationDataBatchProcessor(persistentContainer: persistentContainer).processStoredLocationsInBatches()
+            LocaldataProcessor.shared.processAndSendData()
         }
     }
-    
-    
-    
     
 }

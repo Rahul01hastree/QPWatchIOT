@@ -46,4 +46,9 @@ final class PersistentContainer {
         }
     }
     
+    func newBackgroundContext() -> NSManagedObjectContext {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        return backgroundContext
+    }
+    
 }

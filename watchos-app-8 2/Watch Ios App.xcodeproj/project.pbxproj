@@ -30,12 +30,12 @@
 		CC0B1FEC2C81AC5800B826BC /* ConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1FEB2C81AC5800B826BC /* ConnectivityManager.swift */; };
 		CC0B1FEE2C81AE3500B826BC /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0B1FED2C81AE3500B826BC /* Network.framework */; };
 		CC42BAC52C63457000BF17A2 /* InternetChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42BAC42C63457000BF17A2 /* InternetChecker.swift */; };
+		CC9116A02C834B3500B16154 /* CoredataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91169F2C834B3500B16154 /* CoredataManager.swift */; };
+		CC9116A22C834EA200B16154 /* LocaldataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9116A12C834EA200B16154 /* LocaldataProcessor.swift */; };
 		CCA96F032C577D1D003E0A68 /* IoTHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */; };
 		CCE4C4CB2C4FF2AB00B62516 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4C92C4FF2AB00B62516 /* CoreData.xcdatamodeld */; };
 		CCE4C4CE2C4FF42100B62516 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */; };
 		CCE4C4CF2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */; };
-		CCE776382C69D7EB000B5B22 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE776372C69D7EB000B5B22 /* CoreDataHelper.swift */; };
-		CCE7763A2C69E1EA000B5B22 /* LocationDataBatchProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE776392C69E1EA000B5B22 /* LocationDataBatchProcessor.swift */; };
 		CCEA3EC12C4FC8B7005DF44E /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */; };
 		CCF564D02C62181B0069B857 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF564CF2C62181B0069B857 /* DataModel.swift */; };
 /* End PBXBuildFile section */
@@ -87,12 +87,12 @@
 		CC0B1FEB2C81AC5800B826BC /* ConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityManager.swift; sourceTree = "<group>"; };
 		CC0B1FED2C81AE3500B826BC /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.2.sdk/System/Library/Frameworks/Network.framework; sourceTree = DEVELOPER_DIR; };
 		CC42BAC42C63457000BF17A2 /* InternetChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetChecker.swift; sourceTree = "<group>"; };
+		CC91169F2C834B3500B16154 /* CoredataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoredataManager.swift; sourceTree = "<group>"; };
+		CC9116A12C834EA200B16154 /* LocaldataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaldataProcessor.swift; sourceTree = "<group>"; };
 		CCA96F022C577D1D003E0A68 /* IoTHubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTHubClient.swift; sourceTree = "<group>"; };
 		CCE4C4CA2C4FF2AB00B62516 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CCE776372C69D7EB000B5B22 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		CCE776392C69E1EA000B5B22 /* LocationDataBatchProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataBatchProcessor.swift; sourceTree = "<group>"; };
 		CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		CCF564CF2C62181B0069B857 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				1257AB5D2B2AF39F004BB7D5 /* CoreLocation.swift */,
-				CCE776392C69E1EA000B5B22 /* LocationDataBatchProcessor.swift */,
 			);
 			path = CoreLocation;
 			sourceTree = "<group>";
@@ -214,6 +213,7 @@
 				9ACF709E2B286AA500B1C832 /* Watch_Ios_AppApp.swift */,
 				CC0B1FEA2C81AC1600B826BC /* ConnectivityManager */,
 				CCEA3EBC2C4FC6F6005DF44E /* Shared */,
+				CC9116A32C835AA300B16154 /* CoreDataManager */,
 				1257AB612B2AF3D7004BB7D5 /* Views */,
 				1257AB642B2AF44E004BB7D5 /* CommonClasses */,
 				1257AB5F2B2AF3B0004BB7D5 /* CoreLocation */,
@@ -248,13 +248,21 @@
 			path = ConnectivityManager;
 			sourceTree = "<group>";
 		};
+		CC9116A32C835AA300B16154 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CC91169F2C834B3500B16154 /* CoredataManager.swift */,
+				CC9116A12C834EA200B16154 /* LocaldataProcessor.swift */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
 		CCEA3EBC2C4FC6F6005DF44E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				CCE4C4CD2C4FF42100B62516 /* UserInfo+CoreDataProperties.swift */,
 				CCE4C4CC2C4FF42100B62516 /* UserInfo+CoreDataClass.swift */,
 				CCEA3EC02C4FC8B7005DF44E /* PersistentContainer.swift */,
-				CCE776372C69D7EB000B5B22 /* CoreDataHelper.swift */,
 				CCE4C4C92C4FF2AB00B62516 /* CoreData.xcdatamodeld */,
 			);
 			path = Shared;
@@ -378,7 +386,6 @@
 				CCEA3EC12C4FC8B7005DF44E /* PersistentContainer.swift in Sources */,
 				9ACF70B72B287FB800B1C832 /* CommonClass.swift in Sources */,
 				CCE4C4CB2C4FF2AB00B62516 /* CoreData.xcdatamodeld in Sources */,
-				CCE776382C69D7EB000B5B22 /* CoreDataHelper.swift in Sources */,
 				12823E4F2B316EF500C21F4B /* NetworkClass.swift in Sources */,
 				12823E4C2B31624C00C21F4B /* DeviceTelemetryModel.swift in Sources */,
 				CC0B1FEC2C81AC5800B826BC /* ConnectivityManager.swift in Sources */,
@@ -393,10 +400,11 @@
 				9ACF70A12B286AA500B1C832 /* ContentView.swift in Sources */,
 				CCF564D02C62181B0069B857 /* DataModel.swift in Sources */,
 				12CF6AD42B2C6F4500BF4E2B /* AzureStorageHelper.swift in Sources */,
+				CC9116A22C834EA200B16154 /* LocaldataProcessor.swift in Sources */,
 				124058062BA17475007E8E61 /* PinProtectionView.swift in Sources */,
-				CCE7763A2C69E1EA000B5B22 /* LocationDataBatchProcessor.swift in Sources */,
 				9ACF709F2B286AA500B1C832 /* Watch_Ios_AppApp.swift in Sources */,
 				CC42BAC52C63457000BF17A2 /* InternetChecker.swift in Sources */,
+				CC9116A02C834B3500B16154 /* CoredataManager.swift in Sources */,
 				12CF6AD22B2C615900BF4E2B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
