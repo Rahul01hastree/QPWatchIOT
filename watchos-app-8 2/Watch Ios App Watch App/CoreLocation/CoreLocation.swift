@@ -78,7 +78,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("****longitude",newLocation.coordinate.longitude)
         print("checkCall :\(checkCall)")
         
-        print(ConnectivityManager.shared.isConnected)
+        print("current internet connection \(checkCall): ", ConnectivityManager.shared.isConnected)
         
         if ConnectivityManager.shared.isConnected {
             

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 class LocaldataProcessor {
     
@@ -32,7 +33,7 @@ class LocaldataProcessor {
             // Simulate sending data to IoT Hub
             self.sendBatchToIOTHUBTest(batch: userDatum) { result in
                 if result {
-                    // On successful sending, delete the record
+                    print("On successful sending")
                     CoredataManager.shared.deleteSingleRecord(userLocation: userDatum) { deletionSuccess in
                         if deletionSuccess {
                             print("Successfully deleted record after sending data.")
@@ -46,8 +47,20 @@ class LocaldataProcessor {
                     }
                 } else {
                     print("Failed to send data to IoT Hub.")
+                    
+                    
+                    if NWPathMonitor().currentPath.status == .satisfied {
+                        print("connected")
+                    }else{
+                        print("Dis connected")
+                    }
+//                    if ConnectivityManager.shared.isConnected {
+//                        self.fetchAndSendNextLocation()
+//                    }else{
+//                        return
+//                    }
                     // Handle the sending failure scenario if needed
-                    self.fetchAndSendNextLocation()
+                    
                 }
             }
         }
