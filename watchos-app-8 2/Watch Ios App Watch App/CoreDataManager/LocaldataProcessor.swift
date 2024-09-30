@@ -59,49 +59,6 @@ class LocaldataProcessor {
     
     
     
-//    func sendCoreDataBasedOnUserSelection(unitBatch: UserInfo){
-//        let selectedDeviceIndex = UserDefaults.standard.integer(forKey: "currentDeviceIndex")
-//        //0 for azure IOT
-//        //1 for azure STORAGE
-//        
-//        if selectedDeviceIndex == 0 {
-//            sendBatchToIOTHUBTest(batch: unitBatch ){ result in
-//                if result {
-//                    CoredataManager.shared.deleteSingleRecord(userLocation: unitBatch ){ result in
-//                        if result{
-//                            print("Successfully deleted record after sending data to IOT.")
-//                           
-//                        }
-//                        self.fetchAndSendNextLocation()
-//                        
-//                    }
-//                }else{
-//                    self.fetchAndSendNextLocation()
-//                }
-//                
-//            }
-//        }else{
-//            sendToStorage(batch: unitBatch ){ result in
-//                if result {
-//                    CoredataManager.shared.deleteSingleRecord(userLocation: unitBatch ){ result in
-//                        if result {
-//                            if result{
-//                                print("Successfully deleted record after sending data to STORAGE.")
-//                               
-//                            }
-//                            self.fetchAndSendNextLocation()
-//                        }
-//                    }
-//                }else{
-//                    self.fetchAndSendNextLocation()
-//                }
-//            }
-//        }
-//        
-//        
-//    }
-    
-    
     private func sendBatchToIOTHUBTest(batch: UserInfo, completion: @escaping (Bool) -> Void) {
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 1) {

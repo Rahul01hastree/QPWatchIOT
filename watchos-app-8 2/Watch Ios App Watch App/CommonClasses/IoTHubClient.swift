@@ -164,7 +164,7 @@ class IoTHubClient {
             var httpRes = response as? HTTPURLResponse
             var statusCode = httpRes?.statusCode
             print(statusCode, "current status code")
-            
+            print("file name : \(fileName)")
             print("Old File created successfully ++++++++ old file Sended  ++++++++")
             contentLength = String(fileContent.count - 1)
             self.uploadFile(fileName: fileName, fileContent: fileContent, contentLength: contentLength ){ result in
@@ -211,6 +211,7 @@ class IoTHubClient {
                 return
             }
             print("Old File created successfully with old SAS token")
+            print("file name : \(fileName)")
             sasToken = sasTokenOld
             UserDefaults.standard.set(sasToken, forKey: sasTokenDefaultsKey)
             contentLength = String(fileContent.count - 1)
@@ -261,6 +262,7 @@ class IoTHubClient {
                 return
             }
             completion(true)
+            print("file name : \(fileName)")
             print("**** Old File uploaded")
         }
 

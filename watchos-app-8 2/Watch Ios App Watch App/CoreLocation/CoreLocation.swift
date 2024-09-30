@@ -105,7 +105,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             print("No internet connection")
             if CommonClass().getAvailableStorageSpace() > persistentContainer.minAllowedStorageSize {
                 print("current size :- \(CommonClass().getAvailableStorageSpace())")
-                CoredataManager.shared.saveUserIntoToLocally(location: newLocation)
+                CoredataManager.shared.saveUserIntoToLocally(location: newLocation, with: clientDirection)
             } else {
                 CoredataManager.shared.clearCoreDataWhenFilled(limit: 100, newLocation: newLocation)
             }

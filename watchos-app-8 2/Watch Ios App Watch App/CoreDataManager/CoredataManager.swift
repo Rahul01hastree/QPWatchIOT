@@ -37,7 +37,7 @@ class CoredataManager: NSObject, NSFetchedResultsControllerDelegate {
     }()
     
     
-    func saveUserIntoToLocally(location: CLLocation){
+    func saveUserIntoToLocally(location: CLLocation, with direction: String? = ""){
         
         var userId = CommonClass.getDeviceID().uuidString
         var deviceBatteryPercentage = abs(CommonClass.updateBatteryLevel())
@@ -55,7 +55,7 @@ class CoredataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
         var currentTime = CommonClass.getCurrrentDateTime()
         
-        self.saveLocationData(latitude: latitude, longitude: longitude, batteryLevel: deviceBatteryPercentage, deviceID: userId , speed: speedInMiles, direction: "", timeStamp: currentTime)
+        self.saveLocationData(latitude: latitude, longitude: longitude, batteryLevel: deviceBatteryPercentage, deviceID: userId , speed: speedInMiles, direction: direction ?? "", timeStamp: currentTime)
         
     }
     
@@ -94,7 +94,7 @@ class CoredataManager: NSObject, NSFetchedResultsControllerDelegate {
                         context.delete(record)
                     }
                     try context.save()
-                    self.saveUserIntoToLocally(location: newLocation)
+                    self.saveUserIntoToLocally(location: newLocation )
                     print("Successfully deleted 100 records.")
                 } catch {
                     print("Failed to delete 100 records: \(error)")
