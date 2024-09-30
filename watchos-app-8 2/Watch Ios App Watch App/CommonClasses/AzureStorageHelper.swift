@@ -133,7 +133,9 @@ class AzureStorageHelper {
                 print(String(describing: error))
                 return
             }
-        
+            var httpRes = response as? HTTPURLResponse
+            var statusCode = httpRes?.statusCode
+            print(statusCode, "current status code")
             print("****File uploaded")
         }
 

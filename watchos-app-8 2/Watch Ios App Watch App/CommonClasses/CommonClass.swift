@@ -179,6 +179,16 @@ class CommonClass {
         return nil
     }
     
+     func deleteFileFromFilesDir(fileName: String) -> Bool? {
+        guard let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(fileName) else { return false }
+        do {
+            try FileManager.default.removeItem(at: fileURL)
+            return true
+        } catch {
+            return false
+        }
+    }
+    
 //     func dataParas(from jsonData: [String: Any]) -> DataModel? {
 //        // Extract hostName
 //        guard let hostNameDict = jsonData["hostName"] as? [String: String] else {

@@ -307,6 +307,7 @@ struct AdvancedSettingsView: View {
             }
             
             if let savedSelectedStorageAccountName = UserDefaults.standard.string(forKey: storageAccountNameDefaultsKey) {
+                print(savedSelectedStorageAccountName)
                 selectedStorageAccountName = savedSelectedStorageAccountName
             }
             if let savedSelectedFileShareName = UserDefaults.standard.string(forKey: fileShareNameDefaultsKey) {
@@ -322,6 +323,7 @@ struct AdvancedSettingsView: View {
         }
         .onDisappear() {
             if selectedStorageAccountName != "Select Storage Account Name" {
+                print(selectedStorageAccountName)
                 UserDefaults.standard.set(selectedStorageAccountName, forKey: storageAccountNameDefaultsKey)
             }
             if selectedFileShareName != "Select File Share Name" {

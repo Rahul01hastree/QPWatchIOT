@@ -78,7 +78,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("****longitude",newLocation.coordinate.longitude)
         print("checkCall :\(checkCall)")
         
-        print("current internet connection \(checkCall): ", ConnectivityManager.shared.isConnected)
+        print(ConnectivityManager.shared.isConnected)
+        
+      //  self.sendCurrentStorage(from: newLocation)
+        
+    //    IoTHubClient.shared.sandFileToStorage(userInfo: <#T##DeviceTelemetry#>, completion: <#T##(Bool) -> Void#>)
+        
         
         if ConnectivityManager.shared.isConnected {
             
@@ -244,6 +249,39 @@ extension LocationManager {
             
         }
     }
+    private func sendCurrentStorage(from location : CLLocation ){
+        
+        var speed: Double
+        var speedInMiles: String = ""
+        if location.speed * 0.000621371 <= 0 {
+            speed = 0.0000
+            speedInMiles = String(format: "%.2f", speed)
+        }
+        else{
+            speed = location.speed * 0.000621371
+            speedInMiles = String(format: "%.2f", speed)
+        }
+        
+        var userDirection =  userDirection ?? ""
+        let data = DeviceTelemetry(deviceID: currDeviceID,
+                                   longitude: location.coordinate.longitude,
+                                   latitude: location.coordinate.latitude,
+                                   batteryLevel: CommonClass.updateBatteryLevel(),
+                                   speed:speedInMiles,
+                                   direction: userDirection,
+                                   timeandDate: ISO8601DateFormatter().string(from: Date())
+        )
+        IoTHubClient.shared.sendDataToStorage(userInfo: data ){ result in
+            switch result {
+            case true:
+                print("old fileuploaded")
+            case false:
+                print("failed in uploading old file")
+            }
+        }
+    }
+    
+    
     
 //    private func sendPastLocationToIOTHUB(from location : UserInfo, index : Int) {
 //        
