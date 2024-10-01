@@ -14,26 +14,42 @@
             filePath = "Watch Ios App Watch App/CommonClasses/IoTHubClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "createAndUploadFileWithOldSASToken(fileName:fileContent:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "76568E24-8BD8-4371-AC1A-74214A19C1BF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Watch Ios App Watch App/CoreDataManager/LocaldataProcessor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "fetchAndSendNextLocation()"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D1DD8819-92CB-40E8-9099-D7BB47AF13F3 - 5bb100260b5078be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in QP_HT_Applicationn.IoTHubClient.createAndUploadFileWithOldSASToken(fileName: Swift.String, fileContent: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hastreemacmini1/Desktop/QPWatchIOT/watchos-app-8%202/Watch%20Ios%20App%20Watch%20App/CommonClasses/IoTHubClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "600">
+               </Location>
+               <Location
+                  uuid = "D1DD8819-92CB-40E8-9099-D7BB47AF13F3 - 5bb100260b5078dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in QP_HT_Applicationn.IoTHubClient.createAndUploadFileWithOldSASToken(fileName: Swift.String, fileContent: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "QP HT Applicationn"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hastreemacmini1/Desktop/QPWatchIOT/watchos-app-8%202/Watch%20Ios%20App%20Watch%20App/CommonClasses/IoTHubClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "760">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

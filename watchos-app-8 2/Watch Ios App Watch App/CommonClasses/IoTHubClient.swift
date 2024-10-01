@@ -34,8 +34,6 @@ class IoTHubClient {
         
         self.updateValueFromUserDefaults()
         let urlString = "\(iotHubName)/devices/\(iotDeviceID)/messages/events?api-version=2021-04-12"
-      //  let testingURLString = "https://WatchHP.azure-devices.net/devices/watch1/messages/events?api-version=2021-04-12"
-      //  let newTestingSAS = "SharedAccessSignature sr=WatchHP.azure-devices.net%2Fdevices%2Fwatch1&sig=YgXLt8dSjJQ9LUoMfqK85Hh%2BuCOL%2FyUNPCKfHCDVbMY%3D&se=1727511936"
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
             return
