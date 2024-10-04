@@ -69,7 +69,8 @@ class LocaldataProcessor {
                                        batteryLevel: batch.batteryLevel,
                                        speed:batch.speed ?? "",
                                        direction: batch.direction ?? "",
-                                       timeandDate: batch.timeStamp ?? ""
+                                       timeandDate: batch.timeStamp ?? "",
+                                       isNetworkPresent: false
             )
             
             IoTHubClient.shared.sendClientDataToIOT(userInfo: data) { result in
@@ -93,7 +94,8 @@ class LocaldataProcessor {
                                        batteryLevel: batch.batteryLevel,
                                        speed:batch.speed ?? "",
                                        direction: batch.direction ?? "",
-                                       timeandDate: batch.timeStamp ?? ""
+                                       timeandDate: batch.timeStamp ?? "",
+                                       isNetworkPresent: false
             )
             IoTHubClient.shared.sendDataToStorage(userInfo: data ) { result in
                 switch result {

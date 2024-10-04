@@ -15,4 +15,5 @@ struct DeviceTelemetry: Codable{
     let speed: String
     let direction: String
     let timeandDate : String
+    let isNetworkPresent: Bool
 }

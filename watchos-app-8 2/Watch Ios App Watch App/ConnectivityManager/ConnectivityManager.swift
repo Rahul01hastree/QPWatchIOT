@@ -5,38 +5,76 @@
 //  Created by Rahul Gangwar on 30.08.2024.
 //
 
-import WatchKit
+import Foundation
 import Network
 
-class ConnectivityManager: NSObject {
+class ConnectivityManager {
     
     static let shared = ConnectivityManager()
     private let monitor = NWPathMonitor()
+    private let queue = DispatchQueue.global(qos: .background)
 
-    var isConnected: Bool {
-        return monitor.currentPath.status == .satisfied
+    var isConnected: Bool = false
+    var connectionType: ConnectionType = .unknown
+
+    enum ConnectionType {
+        case wifi
+        case cellular
+        case ethernet
+        case unknown
+    }
+
+    private init() {
+        startMonitoring()
     }
 
     func startMonitoring() {
+        monitor.start(queue: queue)
+
         monitor.pathUpdateHandler = { [weak self] path in
-            self?.updateConnectivityStatus(path: path)
+            self?.isConnected = path.status == .satisfied
+            self?.getConnectionType(path)
+            self?.checkInternetConnection(){ isConnected in
+                self?.isConnected = isConnected
+            }
         }
-        monitor.start(queue: .main)
     }
 
-    private func updateConnectivityStatus(path: NWPath) {
-        if path.status == .satisfied {
-            self.sendLocalDataToLocal()
+    func stopMonitoring() {
+        monitor.cancel()
+    }
+
+    private func getConnectionType(_ path: NWPath) {
+        if path.usesInterfaceType(.wifi) {
+            connectionType = .wifi
+        } else if path.usesInterfaceType(.cellular) {
+            connectionType = .cellular
+        } else if path.usesInterfaceType(.wiredEthernet) {
+            connectionType = .ethernet
         } else {
-            print("Internet is disconnected")
+            connectionType = .unknown
         }
     }
     
-    private func sendLocalDataToLocal(){
-        print("current internet state :- \(isConnected)")
-        if isConnected{
-            LocaldataProcessor.shared.processAndSendData()
-        }
-    }
+    func checkInternetConnection(completion: @escaping (Bool) -> Void) {
+           guard let url = URL(string: "https://www.google.com") else {
+               completion(false)
+               return
+           }
+
+           var request = URLRequest(url: url)
+           request.httpMethod = "HEAD"  // Use HEAD request to avoid downloading unnecessary data
+
+           let task = URLSession.shared.dataTask(with: request) { (_, response, error) in
+               if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                   completion(true)
+                   LocaldataProcessor.shared.processAndSendData()
+               } else {
+                   completion(false)
+               }
+           }
+
+           task.resume()
+       }
     
 }

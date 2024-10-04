@@ -88,7 +88,9 @@ class CommonClass {
             latitude: latitude,
             batteryLevel: deviceBatteryPercentage,
             speed: speedInMiles,
-            direction: userDirections, timeandDate : currentTime
+            direction: userDirections,
+            timeandDate : currentTime,
+            isNetworkPresent: true
         )
 
         lastTelemetryData = telemetryData

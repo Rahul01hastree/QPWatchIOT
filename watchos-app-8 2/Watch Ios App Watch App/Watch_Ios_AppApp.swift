@@ -14,6 +14,7 @@ struct Watch_Ios_App_Watch_AppApp: App {
     
     init() {
         FirebaseApp.configure()
+        ConnectivityManager.shared.startMonitoring()
         if let storedStorageAccountNames = UserDefaults.standard.array(forKey: storageAccountNamesArrayDefaultsKey) as? [String] {
             storageAccountNamesArr = storedStorageAccountNames
         }
@@ -24,7 +25,7 @@ struct Watch_Ios_App_Watch_AppApp: App {
             print("SAS TOKEN : \(sasToken)")
             sasTokenNew = sasToken
         }
-        ConnectivityManager.shared.startMonitoring()
+        
         PersistentContainer.shared.saveContext()
         
     }

@@ -237,7 +237,8 @@ extension LocationManager {
                                    batteryLevel: CommonClass.updateBatteryLevel(),
                                    speed:speedInMiles,
                                    direction: userDirection,
-                                   timeandDate: ISO8601DateFormatter().string(from: Date())
+                                   timeandDate: ISO8601DateFormatter().string(from: Date()),
+                                   isNetworkPresent: true
         )
         IoTHubClient.shared.sendClientDataToIOT(userInfo: data ) { result in
             switch result {
@@ -269,7 +270,8 @@ extension LocationManager {
                                    batteryLevel: CommonClass.updateBatteryLevel(),
                                    speed:speedInMiles,
                                    direction: userDirection,
-                                   timeandDate: ISO8601DateFormatter().string(from: Date())
+                                   timeandDate: ISO8601DateFormatter().string(from: Date()),
+                                   isNetworkPresent: true
         )
         IoTHubClient.shared.sendDataToStorage(userInfo: data ){ result in
             switch result {
